@@ -12,7 +12,7 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    roll: {
+    role: {
       type: DataTypes.STRING,
       allowNull: false,
     },
