@@ -7,14 +7,14 @@ app.use("/", (req, res, next) => {
   res.send("what!");
 });
 
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log("this ");
-  })
-  .catch(() => {
-    console.log("err");
-  });
+// sequelize
+//   .authenticate()
+//   .then(() => {
+//     console.log("this ");
+//   })
+//   .catch(() => {
+//     console.log("err");
+//   });
 
 const PORT = process.env.PORT || 5000;
 
