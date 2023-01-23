@@ -1,0 +1,28 @@
+
+.sectionContainer{
+    position: relative;
+    width: 100%;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    /* background-color: red; */
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.section{
+    width: calc(100%);
+    height: inherit;
+    /* background-color: green; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    z-index: 0;
+    
+}
+
+.contents-X{
+    background-color: blue;
+    width: 300px;
+    height: 200px;
+}
