@@ -1,3 +1,91 @@
-.email{
-    display: none;
+.LoginContainers{
+    /* background-color: aqua; */
+    width: 70%;
+    margin: 3rem auto;
+    height: calc(100vh - 6rem);
+    border: 1px solid rgb(205, 204, 204);
+    border-radius: 5px;
+
+
+}
+
+.fluid-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: greenyellow;
+    border-radius: 3px;
+
+}
+
+.graph__container{
+    width: 50%;
+    height: 100%;
+    
+}
+
+.graph{
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.sign__in_container{
+    width: 50%;
+    /* background-color: blue; */
+    padding: 5rem;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+
+
+}
+
+.sing__elements{
+    width: 100%;
+    background-color: #f8f8f8;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.login-h2{
+    font-weight: 400;
+    font-size: 1.7rem;
+
+}
+
+.form__input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.inputs{
+    width: 100%;
+    margin-bottom: 2.4rem;
+}
+
+.inputs input, .sign-btn{
+    width: 100%;
+    border: 1px solid rgb(79,79,79);
+    background-color: #fff;
+    height: 40px;
+    padding: 5px 12px;
+    font-size: 1.6rem;
+    font-weight: 400;
+    cursor: text;
+}
+
+.sign-btn{
+    background-color: #54b4d3;
+    cursor: pointer;
+    color: #fff;
+    border: none;
 }
