@@ -1,11 +1,12 @@
 const express = require("express");
 const sequelize = require("./configs/dbConfig");
-require("dotenv").config();
+
+//
+const officerRoutes = require("./routes/officer");
+
 const app = express();
 
-app.use("/", (req, res, next) => {
-  res.send("what!");
-});
+app.use("/officer", officerRoutes);
 
 // sequelize
 //   .authenticate()
@@ -19,7 +20,7 @@ app.use("/", (req, res, next) => {
 const PORT = process.env.PORT || 5000;
 
 sequelize
-  .sync({ alter: true })
+  .sync({})
   // .sync({ force: true })
   .then()
   .catch((err) => console.log(err));
