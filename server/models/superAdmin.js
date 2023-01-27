@@ -34,4 +34,4 @@ const SuperAdmin = sequelize.define(
   }
 );
 
-module.exports = Criminal;
+module.exports = SuperAdmin;

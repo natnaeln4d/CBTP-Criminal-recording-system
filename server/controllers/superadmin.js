@@ -1,23 +1,32 @@
-const bcrypt = require("bcryptjs/dist/bcrypt");
 const User = require("../models/auth");
+const SuperAdmin = require("../models/superAdmin");
 const bcrypt = require("bcryptjs");
 
 exports.addUser = async (req, res, next) => {
-  const { email, password, confirmPassword, role, name } = req.body;
+  const { email, name, age, role, phone, address, password, confirmPassword } =
+    req.body;
 
   const user = await User.findOne({ where: { email: email } });
-
   if (user) {
     return res.json({
-      msg: "User with this email already exists! please provide another email",
+      msg: "A user with is email already exist please try again !",
     });
   }
-
   const hash = await bcrypt.hash(password, 12);
-
   const newUser = await User.create({
     email: email,
-    password: hash,
+    password: password,
+    role: role,
   });
-  newUser.save();
+  const newAdmin = await SuperAdmin.create({
+    name: name,
+    email: email,
+    age: age,
+    role: role,
+    address: address,
+    phone: phone,
+  });
+
+  await newUser.save();
+  await newAdmin.save();
 };

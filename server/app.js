@@ -3,12 +3,16 @@ const sequelize = require("./configs/dbConfig");
 
 //
 const officerRoutes = require("./routes/officer");
-const authRoutes = require("./routes/authRoutes");
+const authRoutes = require("./routes/auth");
+const superAdminRoutes = require("./routes/superAdmin");
+const { urlencoded } = require("express");
 
 const app = express();
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/officer", officerRoutes);
 app.use("/", authRoutes);
+app.use("/superAmin", superAdminRoutes);
 
 // sequelize
 //   .authenticate()
