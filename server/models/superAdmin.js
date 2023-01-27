@@ -12,20 +12,20 @@ const SuperAdmin = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    crimeType: {
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    crimeDiscription: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    // dateOfSentence: {
-    //   type: DataTypes.DATE,
-    //   allowNull: false,
-    // },
-    yearOfSentence: {
+    phone: {
       type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    role: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    address: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
   },
