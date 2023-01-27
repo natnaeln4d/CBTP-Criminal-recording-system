@@ -1,8 +1,8 @@
 const router = require("express").Router();
-const officerContorller = require("../controllers/officer");
+const officerController = require("../controllers/officer");
 
-router.get("/criminal", officerContorller.getCriminals);
+router.get("/criminal", officerController.getCriminals);
 
-router.get("/criminal/:criminalId", officerContorller.getCriminal);
+router.get("/criminal/:criminalId", officerController.getCriminal);
 
 module.exports = router;

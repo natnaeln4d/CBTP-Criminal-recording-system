@@ -1,8 +1,8 @@
-const Sequelize = require("sequelize");
 const sequelize = require("../configs/dbConfig");
+const { Sequelize, DataTypes } = require("sequelize");
 
-const User = sequelize.define(
-  "User",
+const Auth = sequelize.define(
+  "Authentication",
   {
     email: {
       type: DataTypes.STRING,
@@ -22,4 +22,4 @@ const User = sequelize.define(
   }
 );
 
-module.exports = User;
+module.exports = Auth;
