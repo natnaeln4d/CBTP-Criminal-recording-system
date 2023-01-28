@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/officer", officerRoutes);
 app.use("/", authRoutes);
-app.use("/superAmin", superAdminRoutes);
+app.use("/superAdmin", superAdminRoutes);
 
 // sequelize
 //   .authenticate()
@@ -32,5 +32,5 @@ sequelize
   .catch((err) => console.log(err));
 
 app.listen(PORT, () => {
-  console.log(`server running at por ${PORT} `);
+  console.log(`server running at port ${PORT} `);
 });

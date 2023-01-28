@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../configs/dbConfig");
 
 const SuperAdmin = sequelize.define(
-  "criminal",
+  "admins",
   {
     name: {
       type: DataTypes.STRING,
