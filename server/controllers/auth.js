@@ -1,5 +1,6 @@
 const Auth = require("../models/Auth");
 const bcrypt = require("bcryptjs");
+const SuperAdmin = require("../models/admin");
 
 exports.postLogin = async (req, res, next) => {
   const { email, password } = req.body;
@@ -11,7 +12,8 @@ exports.postLogin = async (req, res, next) => {
   }
   const match = bcrypt.compare(password, user.password);
   if (match) {
-    return res.status(200).json({ auth: true, role: user.role });
+    const userData = await SuperAdmin.findOne({ where: { email: user.email } });
+    return res.status(200).json({ auth: true, userData: userData });
   } else {
     return res.status(403).json({ auth: false, msg: "access denied" });
   }

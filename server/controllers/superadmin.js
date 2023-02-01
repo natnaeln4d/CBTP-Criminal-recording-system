@@ -1,6 +1,7 @@
-const User = require("../models/auth");
-const SuperAdmin = require("../models/superAdmin");
+const SuperAdmin = require("../models/admin");
 const bcrypt = require("bcryptjs");
+const Auth = require("../models/auth");
+const Criminal = require("../models/criminal");
 
 exports.addUser = async (req, res, next) => {
   const {
@@ -16,16 +17,16 @@ exports.addUser = async (req, res, next) => {
   } = req.body;
 
   if (user === "superAdmin") {
-    const userExist = await User.findOne({ where: { email: email } });
+    const userExist = await Auth.findOne({ where: { email: email } });
     if (userExist) {
       return res.json({
         msg: "A user with is email already exist please try again !",
       });
     }
     const hash = await bcrypt.hash(password, 12);
-    const newUser = await User.create({
+    const newUser = await Auth.create({
       email: email,
-      password: password,
+      password: hash,
       role: role,
     });
     const newAdmin = await SuperAdmin.create({
@@ -44,4 +45,18 @@ exports.addUser = async (req, res, next) => {
   } else {
     return res.status(403).json({ msg: "Not authorized ", redirect: true });
   }
+};
+
+exports.searchCriminal = async (req, res, next) => {
+  const criminalId = req.params.criminalId;
+  const criminal = await Criminal.findOne({ where: { id: criminalId } });
+
+  if (criminal == null) {
+    res.json({ status: "fail", message: "no criminal with this Id " });
+  }
+  res.json({ status: "success", criminal });
+};
+
+exports.searchAdmins = async (req, res, next) => {
+  const adminId = req.params.adminId;
 };
