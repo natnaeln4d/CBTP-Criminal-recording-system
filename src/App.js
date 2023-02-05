@@ -8,7 +8,7 @@ import Sidebar from './componets/SIdebar/Sidebar';
 function App() {
   return (
     <div className="w-[100%]">
-      <Navbar />
+       <Navbar /> 
       <SectionContainer />
       {/* <Sidebar /> */}
       <Footer />

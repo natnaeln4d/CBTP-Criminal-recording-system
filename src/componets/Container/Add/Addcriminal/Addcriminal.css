@@ -17,7 +17,7 @@
     margin: 80px;
 }
 
-.container__profile{
+.container__profile_addCr{
     /* background-color: #0d1117; */
         /* background-color: #0d1117; */
         background-color: #ffffff;
@@ -44,8 +44,9 @@
     top: 5rem;
 }
 
-.edit_inputForms{
-    margin-top: 5rem;
+
+.container__profile_addCr .edit_inputForms{
+    margin-top: 1.5rem;
     overflow-y:scroll;
 
    

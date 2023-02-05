@@ -6,10 +6,10 @@
 .container__profile{
     /* background-color: #0d1117; */
         /* background-color: #0d1117; */
-        background-color: #fff;
+        background-color: #ffffff;
         box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     min-width: 900px;
-    min-height: 350px;
+    min-height: 450px;
     max-width: 900px;
     margin: 10rem auto 10px;
     position: relative;
@@ -79,7 +79,7 @@ font-size: 2rem;
     height: 1px;
     background-color: rgba(255, 255, 255, 0.207);
     background-color: rgba(150, 145, 145, 0.69);
-    /* box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.2);
 
     margin: 2rem 0 1rem;
 }
@@ -107,14 +107,14 @@ font-size: 2rem;
 .editProfile{
     position: absolute;
     top: 7rem;
-    right: 14rem;
+    right: 7rem;
     /* background-color: green; */
     font-size: 1.7rem;
 }
 
 .editProfile button{
     background-color: blue;
-    padding: 10px 16px;
+    padding: 8px 10px;
     border: none;
     color: #fff;
     border-radius: 10px;
