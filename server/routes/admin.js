@@ -5,4 +5,7 @@ router.get("/criminals", adminController.getCriminals);
 router.get("/criminals/:criminalId", adminController.getCriminal);
 router.post("/addCriminal", adminController.addCriminal);
 
+// router.get("/updateCriminal", adminController.)
+router.post("/updateCriminal/:criminalId", adminController.updateCriminal);
+
 module.exports = router;
