@@ -8,10 +8,13 @@ import './Login.css'
 function Login() {
     // const [userName, setUserName] = useState('');
     // const [firstName, setFirstName] = useState('jk');
-    setTimeout(()=>{
-        setError(true)
 
-    }, 2000)
+
+   
+
+
+
+
     const [passType, setPassType] = useState("password")
     const [show, setShow] = useState(<AiFillEyeInvisible />)
     const [error, setError] = useState(false)
@@ -20,13 +23,34 @@ function Login() {
         password: " "
     })
 
+
+
     //Handle form inputs
     const handleForm = (e) =>{
+        e.preventDefault();
         const {name,values} = e.target;
         setForm(prev=>({
             ...prev,
             [name] : values
         }))
+        authenticateUser();
+    }
+
+    const authenticateUser =()=>{
+        if(form.password === '1') {
+            setTimeout(()=>{
+                setError(false)
+        
+            }, 2000)
+    
+        } else {
+            setTimeout(()=>{
+                setError(true)
+        
+            }, 2000)
+    
+        }
+        
     }
     
 

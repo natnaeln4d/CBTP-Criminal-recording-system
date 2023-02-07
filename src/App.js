@@ -12,7 +12,7 @@ function App() {
       <SectionContainer />
       {/* <Sidebar /> */}
       <Footer />
-      {/* <Login /> */}
+       {/* <Login />  */}
       
    
     </div>
