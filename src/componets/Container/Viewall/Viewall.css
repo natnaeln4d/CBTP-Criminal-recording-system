@@ -7,7 +7,7 @@
 .scr{
     display: block;
     overflow-y: scroll;
-    height: 93vh;
+    height: 85vh;
 }
 .drop_icon{
     font-size: 10px;

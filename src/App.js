@@ -11,10 +11,9 @@ function App() {
     <div className="w-[100%]">
       <Navbar />
       {/* <SectionContainer /> */}
-      
       <Viewall />
-      {/* <Sidebar />
-      <Footer /> */}
+      {/* <Sidebar /> */}
+      <Footer />
       {/* <Login /> */}
       
    
