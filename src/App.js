@@ -10,9 +10,10 @@ function App() {
   return (
     <div className="w-[100%]">
       <Navbar />
+      {/* <Viewall /> */}
       <SectionContainer />
       {/* <Sidebar /> */}
-      <Footer />
+      {/* <Footer /> */}
        {/* <Login />  */}
       
    

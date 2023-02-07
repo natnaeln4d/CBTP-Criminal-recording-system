@@ -10,11 +10,6 @@ export default function Login() {
     // const [firstName, setFirstName] = useState('jk');
 
 
-   
-
-
-
-
     const [passType, setPassType] = useState("password")
     const [show, setShow] = useState(<AiFillEyeInvisible />)
     const [error, setError] = useState(false)
@@ -22,12 +17,6 @@ export default function Login() {
         email : 'emails',
         password: " "
     })
-
-
-    //Handle form inputs
-    const handleForm = (e) =>{
-
-
 
     //Handle form inputs
     const handleForm = (e) =>{
@@ -118,4 +107,4 @@ export default function Login() {
     </div>
   )
 }
-}
+
