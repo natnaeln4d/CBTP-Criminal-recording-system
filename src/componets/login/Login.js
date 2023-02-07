@@ -9,15 +9,8 @@ export default function Login() {
     // const [userName, setUserName] = useState('');
     // const [firstName, setFirstName] = useState('jk');
 
-    setTimeout(()=>{
-        setError(true)
-
-    }, 2000)
-
-
 
    
-
 
 
 
