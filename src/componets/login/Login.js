@@ -9,12 +9,6 @@ function Login() {
     // const [userName, setUserName] = useState('');
     // const [firstName, setFirstName] = useState('jk');
 
-
-   
-
-
-
-
     const [passType, setPassType] = useState("password")
     const [show, setShow] = useState(<AiFillEyeInvisible />)
     const [error, setError] = useState(false)
