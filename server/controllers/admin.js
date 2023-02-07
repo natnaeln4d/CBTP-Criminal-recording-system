@@ -22,3 +22,30 @@ exports.getCriminal = async (req, res, next) => {
   }
   res.json({ status: "success", criminal });
 };
+
+//Add criminal
+exports.addCriminal = async (req, res, next) => {
+  const criminalName = req.body.criminalName;
+  const criminalAge = req.body.criminalAge;
+  const crimeType = req.body.crimeType;
+  const crimeDiscription = req.body.crimeDiscription;
+  const yearOfSentence = req.body.yearOfSentence;
+
+  try {
+    //Add criminal to the database
+    const criminal = await Criminal.create({
+      name: criminalName,
+      age: criminalAge,
+      crimeType: crimeType,
+      crimeDiscription: crimeDiscription,
+      yearOfSentence: yearOfSentence,
+    });
+
+    await criminal.save();
+    res.status(200).json({
+      message: "Successful! Criminal is stored.",
+    });
+  } catch {
+    res.status(500).json({ message: "Unable to store it" });
+  }
+};
