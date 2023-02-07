@@ -1,7 +1,6 @@
 const express = require("express");
 const sequelize = require("./configs/dbConfig");
 
-//
 const officerRoutes = require("./routes/officer");
 const authRoutes = require("./routes/auth");
 const superAdminRoutes = require("./routes/superAdmin");
@@ -25,7 +24,7 @@ app.use("/", authRoutes);
 const PORT = process.env.PORT || 5000;
 
 sequelize
-  .sync({ alter: true })
+  .sync()
   // .sync({ force: true })
   .then()
   .catch((err) => console.log(err));
