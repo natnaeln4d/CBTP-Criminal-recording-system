@@ -10,7 +10,6 @@ const authRoutes = require("./routes/auth");
 const superAdminRoutes = require("./routes/superAdmin");
 const { json } = require("sequelize");
 
-//
 const sessionStorage = new SessionStore({
   db: sequelize,
   expiration: 4 * 3600 * 1000,

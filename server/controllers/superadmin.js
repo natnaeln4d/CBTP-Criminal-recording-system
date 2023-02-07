@@ -16,7 +16,7 @@ exports.addUser = async (req, res, next) => {
     user,
   } = req.body;
 
-  if (user === "superAdmin") {
+  if (user.role === "superAdmin") {
     const userExist = await Auth.findOne({ where: { email: email } });
     if (userExist) {
       return res.json({
