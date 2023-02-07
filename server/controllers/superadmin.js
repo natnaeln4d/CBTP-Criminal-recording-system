@@ -1,4 +1,5 @@
 const SuperAdmin = require("../models/admin");
+const Officer = require("../models/officer");
 const bcrypt = require("bcryptjs");
 const Auth = require("../models/auth");
 const Criminal = require("../models/criminal");
@@ -15,7 +16,6 @@ exports.addUser = async (req, res, next) => {
     confirmPassword,
     user,
   } = req.body;
-
   if (user.role === "superAdmin") {
     const userExist = await Auth.findOne({ where: { email: email } });
     if (userExist) {
@@ -29,17 +29,32 @@ exports.addUser = async (req, res, next) => {
       password: hash,
       role: role,
     });
-    const newAdmin = await SuperAdmin.create({
-      name: name,
-      email: email,
-      age: age,
-      role: role,
-      address: address,
-      phone: phone,
-    });
 
-    await newUser.save();
-    await newAdmin.save();
+    if (role == "superAdmin") {
+      const newAdmin = await SuperAdmin.create({
+        name: name,
+        email: email,
+        age: age,
+        role: role,
+        address: address,
+        phone: phone,
+      });
+      await newAdmin.save();
+      // await newUser.save();
+    }
+    if (role == "officer") {
+      const newOfficer = await Officer.create({
+        name: name,
+        email: email,
+        age: age,
+        role: role,
+        phone: phone,
+        address: address,
+        address: "address",
+      });
+      await newOfficer.save();
+      // await newUser.save();
+    }
 
     return res.status(200).json({ msg: "user created" });
   } else {

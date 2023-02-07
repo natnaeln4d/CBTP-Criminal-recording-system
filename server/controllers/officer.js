@@ -10,7 +10,7 @@ exports.getCriminals = async (req, res, next) => {
   res.json({ status: "success", criminals });
 };
 
-exports.getCriminal = async (req, res, next) => {
+exports.searchCriminal = async (req, res, next) => {
   const criminalId = req.params.criminalId;
   const criminal = await Criminal.findOne({ where: { id: criminalId } });
 
