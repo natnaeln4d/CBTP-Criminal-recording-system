@@ -1,8 +1,6 @@
 const Criminal = require("../models/criminal");
 const criminal = require("../models/criminal");
 
-//
-
 //Get total criminals
 exports.getCriminals = async (req, res, next) => {
   const criminals = await Criminal.findAll();
