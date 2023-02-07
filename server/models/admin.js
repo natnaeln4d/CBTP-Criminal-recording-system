@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../configs/dbConfig");
 
-const SuperAdmin = sequelize.define(
+const Admin = sequelize.define(
   "admins",
   {
     name: {
