@@ -23,3 +23,4 @@ exports.getCriminal = async (req, res, next) => {
   }
   res.json({ status: "success", criminal });
 };
+
