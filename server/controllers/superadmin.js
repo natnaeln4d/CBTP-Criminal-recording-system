@@ -59,4 +59,10 @@ exports.searchCriminal = async (req, res, next) => {
 
 exports.searchAdmins = async (req, res, next) => {
   const adminId = req.params.adminId;
+  const admin = await SuperAdmin.findOne({ where: { id: adminId } });
+
+  if (admin == null) {
+    res.json({ status: "fail", message: "no admin with this id" });
+    res.json({ status: "success", admin });
+  }
 };
