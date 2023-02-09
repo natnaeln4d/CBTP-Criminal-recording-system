@@ -16,6 +16,7 @@ import Login from "./login/Login";
 import AddAdmin from "./Container/Add/Addadmin/AddAdmin";
 import Addcriminal from "./Container/Add/Addcriminal/Addcriminal";
 import EditProfile from "./Container/Profile/EditProfile";
+import ViewAdmin from "./Container/viewAdmin/Admintable/ViewAdmin";
 
 export default function TheApp() {
   return (
@@ -24,19 +25,19 @@ export default function TheApp() {
       <Routes>
         {" "}
               <Route
-                path="/login"
+                path="/"
                 element={<Login />}
               />
               <Route
-              path="/viewall" 
+              path="viewall" 
               element={<Viewall />} 
               />
              <Route 
-              path="/"
+              path="search"
               element={<SearchBar />}
               />
               <Route 
-              path="addadmin"
+              path="addAdmin"
               element={<AddAdmin />} 
               />
               <Route 
@@ -47,6 +48,11 @@ export default function TheApp() {
               path="editprofile"
               element={<EditProfile />}
               />
+              <Route 
+                path="viewAdmin"
+                element={<ViewAdmin />
+               }
+          />
 
 
       </Routes>

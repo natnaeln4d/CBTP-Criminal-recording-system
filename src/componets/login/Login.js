@@ -4,6 +4,7 @@ import {AiFillEye} from 'react-icons/ai'
 import {AiFillEyeInvisible} from 'react-icons/ai'
 import {AiFillWarning} from 'react-icons/ai'
 import './Login.css'
+import Sidebar from '../SIdebar/Sidebar';
 
 export default function Login() {
     // const [userName, setUserName] = useState('');
@@ -64,7 +65,11 @@ export default function Login() {
 
   
    return (
-    <div className='LoginContainers'>
+    <div className='sectionContainer'>
+    <div className="section">
+       <Sidebar />
+      <div className='contents-x'>
+      <div className='LoginContainers'>
         <div className="fluid-container">
             <div className="graph__container">
                 <img src={lock} alt="" className='graph' />
@@ -105,6 +110,12 @@ export default function Login() {
         </div>
 
     </div>
+
+      </div>
+    </div>
+
+</div>
+  
   )
 }
 

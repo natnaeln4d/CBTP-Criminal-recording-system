@@ -35,6 +35,14 @@ function Sidebar() {
             </a>
             </Link>
         </div>
+        <div className="container__content">
+        <Link to="/viewAdmin">
+            <a href="#" className='side__elements'>
+                <FaListAlt className='side__icons'/>
+                View Admin
+            </a>
+            </Link>
+        </div>
 
         <div className="container__content">
             <a href="#" className='side__elements'>
@@ -44,7 +52,7 @@ function Sidebar() {
         </div>
 
         <div className="container__content">
-        <Link to="/addcriminal">
+        <Link to="/addadmin">
             <a href="#" className='side__elements'>
                 <FaUserPlus className='side__icons' />
                 Add Criminal
