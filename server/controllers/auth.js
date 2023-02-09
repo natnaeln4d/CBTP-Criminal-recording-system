@@ -17,15 +17,20 @@ exports.postLogin = async (req, res, next) => {
   const match = password == user.password;
   if (match) {
     let userData;
+    //Superadmin
     if (user.role == "superadmin") {
       userData = await SuperAdmin.findOne({
         where: { email: user.email },
       });
-    } else if (user.role == "admin") {
+    }
+    //Admin
+    else if (user.role == "admin") {
       userData = await SuperAdmin.findOne({
         where: { email: user.email },
       });
-    } else if (user.role == "officer") {
+    }
+    //Officer
+    else if (user.role == "officer") {
       userData = await Officer.findOne({
         where: { email: user.email },
       });
