@@ -5,15 +5,13 @@ const Officer = require("../models/officer");
 
 exports.postLogin = async (req, res, next) => {
   const { email, password } = req.body;
+  console.log(req.body);
 
   const user = await Auth.findOne({ where: { email: email } });
-  const users = await Auth.findOne();
-
   if (!user) {
-    return res.status(401).json("Invalid email");
+    return res.json({ auth: false, message: "Invalid Email or password " });
   }
   // const match = bcrypt./compare(password, user.password);
-  console.log(password);
   const match = password == user.password;
   if (match) {
     let userData;

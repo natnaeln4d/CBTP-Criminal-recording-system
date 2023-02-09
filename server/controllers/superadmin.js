@@ -20,7 +20,14 @@ exports.addUser = async (req, res, next) => {
     const userExist = await Auth.findOne({ where: { email: email } });
     if (userExist) {
       return res.json({
-        msg: "A user with is email already exist please try again !",
+        status: "fail",
+        message: "A user with is email already exist please try again !",
+      });
+    }
+    if (password != confirmPassword) {
+      return res.json({
+        status: "fail",
+        message: " Password mismatch !",
       });
     }
     const hash = await bcrypt.hash(password, 12);
@@ -30,7 +37,7 @@ exports.addUser = async (req, res, next) => {
       role: role,
     });
 
-    if (role == "superAdmin") {
+    if (role == "SuperAdmin") {
       const newAdmin = await SuperAdmin.create({
         name: name,
         email: email,
@@ -40,9 +47,21 @@ exports.addUser = async (req, res, next) => {
         phone: phone,
       });
       await newAdmin.save();
-      // await newUser.save();
+      await newUser.save();
     }
-    if (role == "officer") {
+    if (role == "Admin") {
+      const newAdmin = await SuperAdmin.create({
+        name: name,
+        email: email,
+        age: age,
+        role: role,
+        address: address,
+        phone: phone,
+      });
+      await newAdmin.save();
+      await newUser.save();
+    }
+    if (role == "Officer") {
       const newOfficer = await Officer.create({
         name: name,
         email: email,
@@ -53,12 +72,17 @@ exports.addUser = async (req, res, next) => {
         address: "address",
       });
       await newOfficer.save();
-      // await newUser.save();
+      await newUser.save();
     }
 
-    return res.status(200).json({ msg: "user created" });
+    return res.status(200).json({
+      status: "success",
+      message: `User with ${role}role  created `,
+    });
   } else {
-    return res.status(403).json({ msg: "Not authorized ", redirect: true });
+    return res
+      .status(403)
+      .json({ statu: "fail", message: "Not authorized ", redirect: true });
   }
 };
 
@@ -85,7 +109,6 @@ exports.searchAdmins = async (req, res, next) => {
 exports.updateCriminal = async (req, res, next) => {
   const criminalId = req.params.criminalId;
 
-  
   //Datas to update
   const updatedName = req.body.name;
   const updatedAge = req.body.age;
