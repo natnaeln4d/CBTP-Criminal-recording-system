@@ -57,8 +57,8 @@ app.use("/", authRoutes);
 const PORT = process.env.PORT || 5000;
 
 sequelize
-  .sync()
-  // .sync({ force: true })
+  .sync({ force: true })
+  // .sync()
   .then()
   .catch((err) => console.log(err));
 

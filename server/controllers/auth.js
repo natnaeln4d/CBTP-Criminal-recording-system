@@ -1,20 +1,20 @@
 const Auth = require("../models/Auth");
 const bcrypt = require("bcryptjs");
 const SuperAdmin = require("../models/admin");
+const Admin = require("../models/admin");
 const Officer = require("../models/officer");
 
 exports.postLogin = async (req, res, next) => {
   const { email, password } = req.body;
 
   const user = await Auth.findOne({ where: { email: email } });
-  const users = await Auth.findOne();
 
   if (!user) {
     return res.status(401).json("Invalid email");
   }
-  // const match = bcrypt./compare(password, user.password);
-  console.log(password);
-  const match = password == user.password;
+
+  // const match = password == user.password;
+  const match = await bcrypt.compare(password, user.password);
   if (match) {
     let userData;
     //Superadmin
