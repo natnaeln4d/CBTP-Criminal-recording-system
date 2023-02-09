@@ -42,9 +42,9 @@ exports.addCriminal = async (req, res, next) => {
     });
 
     await criminal.save();
-    res.status(200).json({
-      message: "Successful! Criminal is stored.",
-    });
+    res
+      .status(200)
+      .json({ status: "success", message: "Successful! Criminal is stored." });
   } catch {
     res.status(500).json({ message: "Unable to store it" });
   }
@@ -66,7 +66,7 @@ exports.updateCriminal = async (req, res, next) => {
     where: { id: criminalId },
   });
   if (!oldCriminal) {
-    res.json({ message: "Error! No user with that id" });
+    res.json({ status: "fail", message: "Error! No user with that id" });
   }
 
   //Updating the criminal data
@@ -77,7 +77,9 @@ exports.updateCriminal = async (req, res, next) => {
   oldCriminal.yearOfSentence = updatedYearOfSentence;
 
   await oldCriminal.save();
-  res
-    .status(200)
-    .json({ message: "Successful! Criminal data is updated.", oldCriminal });
+  res.status(200).json({
+    status: "success",
+    message: "Successful! Criminal data is updated.",
+    oldCriminal,
+  });
 };
