@@ -1,10 +1,20 @@
 const router = require("express").Router();
 
+const adminController = require("../controllers/admin");
 const superAdminController = require("../controllers/superadmin");
+const isAuth = require("../middleware/isAuth");
 
-router.post("/addUser", superAdminController.addUser);
+router.post("/addUser", isAuth, superAdminController.addUser);
 
-router.post("/criminal/:criminalId", superAdminController.searchCriminal);
+router.post(
+  "/criminal/:criminalId",
+  isAuth,
+  superAdminController.searchCriminal
+);
 
-router.post("/updateCriminal/:criminalId", adminController.updateCriminal);
+router.post(
+  "/updateCriminal/:criminalId",
+  isAuth,
+  adminController.updateCriminal
+);
 module.exports = router;
