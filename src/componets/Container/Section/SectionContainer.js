@@ -3,6 +3,7 @@ import Sidebar from '../../SIdebar/Sidebar'
 import Addcriminal from '../Add/Addcriminal/Addcriminal'
 import EditProfile from '../Profile/EditProfile'
 import Profile from '../Profile/Profile'
+import SearchBar from '../searchBar/SearchBar'
 import './sectionContainer.css'
 
 function SectionContainer() {
@@ -13,7 +14,8 @@ function SectionContainer() {
           <div className='contents-x'>
             {/* <Profile /> */}
             {/* <EditProfile /> */}
-            <Addcriminal />
+            {/* <Addcriminal /> */}
+            <SearchBar />
           </div>
         </div>
 
