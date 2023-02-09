@@ -1,4 +1,5 @@
 import React from 'react'
+import Login from '../../login/Login'
 import Sidebar from '../../SIdebar/Sidebar'
 import AddAdmin from '../Add/Addadmin/AddAdmin'
 import Addcriminal from '../Add/Addcriminal/Addcriminal'
@@ -13,11 +14,12 @@ function SectionContainer() {
         <div className="section">
             <Sidebar />
           <div className='contents-x'>
+            {/* <Login /> */}
             {/* <Profile /> */}
             {/* <EditProfile /> */}
             {/* <Addcriminal /> */}
             {/* <Viewall /> */}
-            {/* <AddAdmin /> */}
+            <AddAdmin />
           </div>
         </div>
 
