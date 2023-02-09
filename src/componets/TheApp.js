@@ -17,7 +17,11 @@ import AddAdmin from "./Container/Add/Addadmin/AddAdmin";
 import Addcriminal from "./Container/Add/Addcriminal/Addcriminal";
 import EditProfile from "./Container/Profile/EditProfile";
 import ViewAdmin from "./Container/viewAdmin/Admintable/ViewAdmin";
+<<<<<<< HEAD
 import ViewSinglecriminal from "./Container/Viewall/ViewSinglecriminal";
+=======
+import Profile from "./Container/Profile/Profile";
+>>>>>>> dbc02250fbfb749bf5f36cca61191c90f4574f57
 
 export default function TheApp() {
   return (
@@ -53,7 +57,13 @@ export default function TheApp() {
               path="editprofile"
               element={<EditProfile />}
               />
+
               <Route 
+              path="profile" exact='true'
+              element={<Profile />}
+              />
+
+              < Route 
                 path="viewAdmin"
                 element={<ViewAdmin />
                }

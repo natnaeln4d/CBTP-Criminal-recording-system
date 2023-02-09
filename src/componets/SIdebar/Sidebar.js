@@ -2,7 +2,7 @@ import React from 'react'
 import {FaUserCircle} from 'react-icons/fa'
 import{FaUserPlus} from 'react-icons/fa'
 import {FaListAlt} from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { NavLink,Link } from 'react-router-dom'
 import './Sidebar.css'
 
 function Sidebar() {
@@ -19,12 +19,14 @@ function Sidebar() {
         </div> */}
 
         <div className="container__content">
-            <Link to="/">
-            <a href="#" className='side__elements'>
+            <NavLink to="/ className='side__elements'">
+                <NavLink to='/profile'>
+                
+              
                 <FaUserCircle className='side__icons'/>
                 Profile
-            </a>
-            </Link>
+            </NavLink>
+            </NavLink>
         </div>
 
         <div className="container__content">
