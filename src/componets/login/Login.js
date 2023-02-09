@@ -93,7 +93,7 @@ export default function Login() {
     <div className='sectionContainer'>
     <div className="section">
        <Sidebar />
-      <div className='contents-x'>
+      <div className='contents-x-login'>
       <div className='LoginContainers'>
         <div className="fluid-container">
             <div className="graph__container">
@@ -120,7 +120,15 @@ export default function Login() {
                         </div>
 
                         <div className="inputs pswd__area">
-                            <input type={passType} name='password' value={form.password} onChange = {handleForm} placeholder='Password' className='pswd__area'/>
+                            <input 
+                                type={passType} 
+                                name='password' 
+                                value={form.password} 
+                                onChange = {handleForm} 
+                                placeholder='Password' 
+                                className='pswd__area'
+                                autoComplete='off'
+                            />
 
                             <button className='show__pswd' onClick={showPass}>  {show } </button>
                         </div>
