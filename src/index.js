@@ -1,39 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { Route, Router, Routes } from 'react-router';
-import Profile from './componets/Container/Profile/Profile';
-import { BrowserRouter } from 'react-router-dom';
-import TheApp from './componets/TheApp';
-import SearchBar from './componets/Container/searchBar/SearchBar';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { Route, Router, Routes } from "react-router";
+import Profile from "./componets/Container/Profile/Profile";
+import { BrowserRouter } from "react-router-dom";
+import TheApp from "./componets/TheApp";
+import SearchBar from "./componets/Container/searchBar/SearchBar";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <BrowserRouter>
-  <TheApp />
-   {/* <Router>
-    <Routes>
-      <Route path='/' element={<TheApp />} />
-    </Routes>
-   </Router> */}
-
-  </BrowserRouter>
-);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<TheApp />);
 // ReactDOM.createRoot(document.getElementById("root")).render(
 // <BrowserRouter>
-{/* <Router>
+{
+  /* <Router>
    <Routes>
      <Route path='/' element={<TheApp />} />
     
    </Routes>
    
-  </Router> */}
+  </Router> */
+}
 //   </BrowserRouter>
-  
 
- 
 //  );
 
 // If you want to start measuring performance in your app, pass a function
