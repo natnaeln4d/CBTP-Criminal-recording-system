@@ -25,46 +25,42 @@ export default function TheApp() {
       <Navbar />
       <Routes>
         {" "}
-              <Route
-                path="/"
-                element={<Login />}
-              />
-              <Route
-              path="viewall" 
-              element={<Viewall />} 
-              />
-             <Route 
-              path="search"
-              element={<SearchBar />}
-              />
-              <Route 
-              path="addAdmin"
-              element={<AddAdmin />} 
-              />
-              <Route 
-                path="addcriminal"
-                element={<Addcriminal />}
-                />
-              <Route 
-              path="editprofile"
-              element={<EditProfile />}
-              />
-
-              <Route 
-              path="profile" exact='true'
-              element={<Profile />}
-              />
-
-              < Route 
-                path="viewAdmin"
-                element={<ViewAdmin />
-               }
-          />
-
-
+        <Route
+          path="/"
+          element={<Login />}
+        />
+        <Route
+          path="/viewall"
+          exact
+          element={<Viewall />}
+        />
+        <Route
+          path="search"
+          element={<SearchBar />}
+        />
+        <Route
+          path="addAdmin"
+          element={<AddAdmin />}
+        />
+        <Route
+          path="addcriminal"
+          element={<Addcriminal />}
+        />
+        <Route
+          path="editprofile"
+          element={<EditProfile />}
+        />
+        <Route
+          path="profile"
+          exact="true"
+          element={<Profile />}
+        />
+        <Route
+          path="viewAdmin"
+          element={<ViewAdmin />}
+        />
       </Routes>
       <Footer />
     </Router>
-   
   );
 }
