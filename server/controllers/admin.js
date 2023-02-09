@@ -25,20 +25,23 @@ exports.getCriminal = async (req, res, next) => {
 
 //Add criminal data
 exports.addCriminal = async (req, res, next) => {
-  const criminalName = req.body.criminalName;
-  const criminalAge = req.body.criminalAge;
+  console.log("aaaaaaaaaaaaddddddddddddddd");
+  const criminalName = req.body.name;
+  const criminalAge = req.body.age;
   const crimeType = req.body.crimeType;
-  const crimeDiscription = req.body.crimeDiscription;
+  const crimeDiscription = req.body.crimeDescription;
   const yearOfSentence = req.body.yearOfSentence;
+  const dateOfSentence = req.body.dateOfSentence;
 
   try {
     //Add criminal to the database
     const criminal = await Criminal.create({
       name: criminalName,
       age: criminalAge,
-      crimeType: crimeType,
-      crimeDiscription: crimeDiscription,
-      yearOfSentence: yearOfSentence,
+      crimeType,
+      crimeDiscription,
+      yearOfSentence,
+      dateOfSentence,
     });
 
     await criminal.save();
@@ -46,7 +49,7 @@ exports.addCriminal = async (req, res, next) => {
       .status(200)
       .json({ status: "success", message: "Successful! Criminal is stored." });
   } catch {
-    res.status(500).json({ message: "Unable to store it" });
+    res.json({ status: "fail", message: "Unable to store it" });
   }
 };
 
@@ -60,6 +63,7 @@ exports.updateCriminal = async (req, res, next) => {
   const updatedCrimeType = req.body.crimeType;
   const updatedCrimeDiscription = req.body.crimeDiscription;
   const updatedYearOfSentence = req.body.yearOfSentence;
+  const updatedDateOfSentence = req.body.dateOfSentence;
 
   //Fetched Criminal
   const oldCriminal = await Criminal.findOne({
@@ -75,6 +79,7 @@ exports.updateCriminal = async (req, res, next) => {
   oldCriminal.crimeType = updatedCrimeType;
   oldCriminal.crimeDiscription = updatedCrimeDiscription;
   oldCriminal.yearOfSentence = updatedYearOfSentence;
+  oldCriminal.dateOfSentence = updatedDateOfSentence;
 
   await oldCriminal.save();
   res.status(200).json({

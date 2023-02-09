@@ -20,10 +20,10 @@ const Criminal = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // dateOfSentence: {
-    //   type: DataTypes.DATE,
-    //   allowNull: false,
-    // },
+    dateOfSentence: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
     yearOfSentence: {
       type: DataTypes.INTEGER,
       allowNull: false,
