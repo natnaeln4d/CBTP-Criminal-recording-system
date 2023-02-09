@@ -29,6 +29,7 @@ export default function TheApp() {
         {" "}
         <Route
           path="/"
+          exact
           element={<Login />}
         />
         <Route
@@ -38,27 +39,32 @@ export default function TheApp() {
         />
         <Route
           path="search"
+          exact
           element={<SearchBar />}
         />
         <Route
           path="addAdmin"
+          exact
           element={<AddAdmin />}
         />
         <Route
           path="addcriminal"
+          exact
           element={<Addcriminal />}
         />
         <Route
           path="editprofile"
+          exacts
           element={<EditProfile />}
         />
         <Route
           path="profile"
-          exact="true"
+          exact
           element={<Profile />}
         />
         <Route
           path="viewAdmin"
+          exact
           element={<ViewAdmin />}
         />
         <Route
