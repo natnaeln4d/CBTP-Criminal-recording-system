@@ -7,7 +7,7 @@ exports.getCriminals = async (req, res, next) => {
     throw error;
   }
 
-  res.json({ status: "success", criminals });
+  res.json({ status: true, criminals });
 };
 
 exports.searchCriminal = async (req, res, next) => {
