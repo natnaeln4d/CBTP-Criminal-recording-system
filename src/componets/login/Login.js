@@ -4,7 +4,12 @@ import {AiFillEye} from 'react-icons/ai'
 import {AiFillEyeInvisible} from 'react-icons/ai'
 import {AiFillWarning} from 'react-icons/ai'
 import './Login.css'
+
+// import axios from './api/axios'
+import axios from '../api/axios'
+
 import Sidebar from '../SIdebar/Sidebar';
+
 
 export default function Login() {
     // const [userName, setUserName] = useState('');
@@ -15,9 +20,11 @@ export default function Login() {
     const [show, setShow] = useState(<AiFillEyeInvisible />)
     const [error, setError] = useState(false)
     const [form, setForm] = useState({
-        email : 'emails',
-        password: " "
+        email : '',
+        password: ""
     })
+
+    const LOGIN_URL = '/login'
 
     //Handle form inputs
     const handleForm = (e) =>{
@@ -29,6 +36,24 @@ export default function Login() {
             [name] : values
         }))
         authenticateUser();
+    }
+
+    const handleSubmit = async (e)=>{
+        e.preventDefault();
+        try{
+            const response = await axios.post(LOGIN_URL,JSON.stringify(form.email, form.password),{
+
+                headers: { 'Content-Type': 'application/json' },
+                withCredentials: true
+
+            }
+            );
+             console.log(response?.data);
+
+        } catch(err){
+            console.log(err)
+            authenticateUser()
+        }
     }
 
     const authenticateUser =()=>{
@@ -68,7 +93,7 @@ export default function Login() {
     <div className='sectionContainer'>
     <div className="section">
        <Sidebar />
-      <div className='contents-x'>
+      <div className='contents-x-login'>
       <div className='LoginContainers'>
         <div className="fluid-container">
             <div className="graph__container">
@@ -95,13 +120,21 @@ export default function Login() {
                         </div>
 
                         <div className="inputs pswd__area">
-                            <input type={passType} name='password' value={form.password} onChange = {handleForm} placeholder='Password' className='pswd__area'/>
+                            <input 
+                                type={passType} 
+                                name='password' 
+                                value={form.password} 
+                                onChange = {handleForm} 
+                                placeholder='Password' 
+                                className='pswd__area'
+                                autoComplete='off'
+                            />
 
                             <button className='show__pswd' onClick={showPass}>  {show } </button>
                         </div>
 
                         <div className="inputs">
-                            <button name='' className='sign-btn'>Sign in</button>
+                            <button name='' className='sign-btn' onClick={handleSubmit}>Sign in</button>
                         </div>
                     </form>
                 </div>

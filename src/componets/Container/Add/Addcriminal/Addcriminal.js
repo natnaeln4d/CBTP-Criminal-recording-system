@@ -46,7 +46,7 @@ function Addcriminal() {
          </div>
          <div className="edit_inputs ">
              <label htmlFor="name">
-                 age
+                 Age
              </label>
              <input type="number" name='age'value={editForm.age} onChange = {handleForm} />
          </div>

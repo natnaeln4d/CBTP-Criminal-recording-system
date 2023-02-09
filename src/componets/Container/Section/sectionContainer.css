@@ -96,7 +96,8 @@
 .inputs input{
     width: 100%;
     height: 38px;
-    border: 1px solid #0d1117;
+    border: 1px solid #96999d;
+   
     margin-top: 2px;
     padding: 8px 12px;
 }
