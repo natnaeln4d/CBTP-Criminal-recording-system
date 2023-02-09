@@ -89,9 +89,10 @@ export default class Navbar extends Component {
        
             <option className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">
               
-            <Link to="/profile" className="block mt-4 mr-4 text-teal-200 lg:inline-block lg:mt-0 hover:text-white">  Profile</Link>
+            <Link to="/profile"> 
+            <a  href="#" >Edit Profile</a></Link>
             </option>
-            <option className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1"><a href="#" >Setting</a></option>
+            <option className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1"><Link to="/editprofile"><a href="#" >Edit Profile</a></Link></option>
 
             <option className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-3"><a href="#" >Sign out</a></option>
 

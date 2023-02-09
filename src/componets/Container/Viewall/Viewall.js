@@ -23,7 +23,7 @@ export default function Viewall() {
 <div className="scr -my-2 py-2  sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
         <div className="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white shadow-lg px-12">
             <div className="flex justify-between">
-            <h1 className='text-[2rem]'>All criminals</h1>
+            <h1 className='text-[2rem]'>All Criminals</h1>
             </div>
         </div>
         <div className="align-middle  inline-block w-[8-%] shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
