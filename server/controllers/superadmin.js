@@ -81,3 +81,37 @@ exports.searchAdmins = async (req, res, next) => {
     res.json({ status: "success", admin });
   }
 };
+//Update criminal
+exports.updateCriminal = async (req, res, next) => {
+  const criminalId = req.params.criminalId;
+
+  
+  //Datas to update
+  const updatedName = req.body.name;
+  const updatedAge = req.body.age;
+  const updatedCrimeType = req.body.crimeType;
+  const updatedCrimeDiscription = req.body.crimeDiscription;
+  const updatedYearOfSentence = req.body.yearOfSentence;
+
+  //Fetched Criminal
+  const oldCriminal = await Criminal.findOne({
+    where: { id: criminalId },
+  });
+  if (!oldCriminal) {
+    res.json({ status: "fail", message: "Error! No user with that id" });
+  }
+
+  //Updating the criminal data
+  oldCriminal.name = updatedName;
+  oldCriminal.age = updatedAge;
+  oldCriminal.crimeType = updatedCrimeType;
+  oldCriminal.crimeDiscription = updatedCrimeDiscription;
+  oldCriminal.yearOfSentence = updatedYearOfSentence;
+
+  await oldCriminal.save();
+  res.status(200).json({
+    status: "success",
+    message: "Successful! Criminal data is updated.",
+    oldCriminal,
+  });
+};

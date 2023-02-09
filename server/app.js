@@ -7,9 +7,9 @@ const SessionStore = require("connect-session-sequelize")(session.Store);
 
 const officerRoutes = require("./routes/officer");
 const authRoutes = require("./routes/auth");
+const adminRoutes = require("./routes/admin");
 const superAdminRoutes = require("./routes/superAdmin");
 
-//
 const sessionStorage = new SessionStore({
   db: sequelize,
   expiration: 4 * 3600 * 1000,
@@ -39,6 +39,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/officer", officerRoutes);
+app.use("/admin", adminRoutes);
 app.use("/superAdmin", superAdminRoutes);
 app.use("/", authRoutes);
 

@@ -22,3 +22,64 @@ exports.getCriminal = async (req, res, next) => {
   }
   res.json({ status: "success", criminal });
 };
+
+//Add criminal data
+exports.addCriminal = async (req, res, next) => {
+  const criminalName = req.body.criminalName;
+  const criminalAge = req.body.criminalAge;
+  const crimeType = req.body.crimeType;
+  const crimeDiscription = req.body.crimeDiscription;
+  const yearOfSentence = req.body.yearOfSentence;
+
+  try {
+    //Add criminal to the database
+    const criminal = await Criminal.create({
+      name: criminalName,
+      age: criminalAge,
+      crimeType: crimeType,
+      crimeDiscription: crimeDiscription,
+      yearOfSentence: yearOfSentence,
+    });
+
+    await criminal.save();
+    res
+      .status(200)
+      .json({ status: "success", message: "Successful! Criminal is stored." });
+  } catch {
+    res.status(500).json({ message: "Unable to store it" });
+  }
+};
+
+//Update criminal
+exports.updateCriminal = async (req, res, next) => {
+  const criminalId = req.params.criminalId;
+
+  //Datas to update
+  const updatedName = req.body.name;
+  const updatedAge = req.body.age;
+  const updatedCrimeType = req.body.crimeType;
+  const updatedCrimeDiscription = req.body.crimeDiscription;
+  const updatedYearOfSentence = req.body.yearOfSentence;
+
+  //Fetched Criminal
+  const oldCriminal = await Criminal.findOne({
+    where: { id: criminalId },
+  });
+  if (!oldCriminal) {
+    res.json({ status: "fail", message: "Error! No user with that id" });
+  }
+
+  //Updating the criminal data
+  oldCriminal.name = updatedName;
+  oldCriminal.age = updatedAge;
+  oldCriminal.crimeType = updatedCrimeType;
+  oldCriminal.crimeDiscription = updatedCrimeDiscription;
+  oldCriminal.yearOfSentence = updatedYearOfSentence;
+
+  await oldCriminal.save();
+  res.status(200).json({
+    status: "success",
+    message: "Successful! Criminal data is updated.",
+    oldCriminal,
+  });
+};
