@@ -13,19 +13,19 @@ function App() {
   return (
     <div className="w-[100%]">
       <Navbar />
-<<<<<<< HEAD
+
       {/* <SectionContainer /> */}
       {/* <Viewall /> */}
       <SearchBar />
       {/* <Sidebar /> */}
 
       <Footer />
-=======
+
       {/* <Viewall /> */}
       <SectionContainer />
       {/* <Sidebar /> */}
       {/* <Footer /> */}
->>>>>>> f9db007ed24c5c573738a0bba3e183f1d08bde92
+
        {/* <Login />  */}
       
    
