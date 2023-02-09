@@ -31,6 +31,8 @@ app.use(
     },
   })
 );
+
+//Headers to fix CORS Errors
 app.use((req, res, next) => {
   console.log(req.path);
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -56,8 +58,8 @@ app.use("/", authRoutes);
 const PORT = process.env.PORT || 5000;
 
 sequelize
-  .sync()
-  // .sync({ force: true })
+  .sync({ force: true })
+  // .sync()
   .then()
   .catch((err) => console.log(err));
 

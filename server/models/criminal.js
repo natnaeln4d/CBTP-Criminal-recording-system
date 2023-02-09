@@ -16,7 +16,7 @@ const Criminal = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    crimeDiscription: {
+    crimeDescription: {
       type: DataTypes.STRING,
       allowNull: false,
     },
