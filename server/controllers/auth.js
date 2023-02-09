@@ -21,8 +21,11 @@ exports.postLogin = async (req, res, next) => {
       userData = await SuperAdmin.findOne({
         where: { email: user.email },
       });
-    }
-    if (user.role == "officer") {
+    } else if (user.role == "admin") {
+      userData = await SuperAdmin.findOne({
+        where: { email: user.email },
+      });
+    } else if (user.role == "officer") {
       userData = await Officer.findOne({
         where: { email: user.email },
       });
