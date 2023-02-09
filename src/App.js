@@ -13,7 +13,7 @@ function App() {
       {/* <Viewall /> */}
       <SectionContainer />
       {/* <Sidebar /> */}
-      {/* <Footer /> */}
+      <Footer />
        {/* <Login />  */}
       
    

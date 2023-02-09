@@ -51,7 +51,7 @@ function AddAdmin() {
     <div className='container__profile_addCr'>
     
      <form className="edit_inputForms">
-     <h1 className="section__page_title">Add criminal page </h1>
+     <h1 className="section__page_title">Add Admin page </h1>
 
        
        
@@ -88,7 +88,7 @@ function AddAdmin() {
              <label htmlFor="name">
                  Roles
              </label>
-             <select value="dd">
+             <select name = 'role' value={editForm.role} onChange = {handleForm}>
               <option>SuperAdmin</option>
               <option>Admin</option>
               <option>Officer</option>

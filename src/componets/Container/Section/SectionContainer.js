@@ -16,10 +16,10 @@ function SectionContainer() {
           <div className='contents-x'>
             {/* <Login /> */}
             {/* <Profile /> */}
-            {/* <EditProfile /> */}
+            <EditProfile />
             {/* <Addcriminal /> */}
             {/* <Viewall /> */}
-            <AddAdmin />
+            {/* <AddAdmin /> */}
           </div>
         </div>
 
