@@ -7,8 +7,12 @@ function Addcriminal() {
   const [editForm, setEditForm] = useState({
     firstName: "Robera",
     lastName: "Insarmu",
-    phone : 23272373232,
-    email: 'roba@gmail.com'
+    age : 12,
+    crimeType: "murdering",
+    crimeDescription: "lorem shshs sh",
+    dateofSentence: "",
+    yearOfSentence: 4,
+
   })
 
   const handleForm = (e) =>{
@@ -21,10 +25,10 @@ function Addcriminal() {
 
   return (
 
-    <div className="container-xP-edit">
+    <div className="container-xP-edit-a">
     <div className='container__profile_addCr'>
-     <h1>Add criminal page </h1>
      <form className="edit_inputForms">
+     <h1 className="section__page_title">Add criminal page </h1>
        
        
          <div className="edit_inputs ">
@@ -42,16 +46,30 @@ function Addcriminal() {
          </div>
          <div className="edit_inputs ">
              <label htmlFor="name">
-                 Email
+                 age
              </label>
-             <input type="text" name='email'value={editForm.email} onChange = {handleForm} />
+             <input type="number" name='age'value={editForm.age} onChange = {handleForm} />
          </div>
 
          <div className="edit_inputs ">
              <label htmlFor="name">
-                 Phone
+                 Crime Type
              </label>
-             <input type="text" name='phone'value={editForm.phone} onChange = {handleForm} />
+             <input type="text" name='crimeType'value={editForm.crimeType} onChange = {handleForm} />
+         </div>
+
+         <div className="edit_inputs ">
+             <label htmlFor="name">
+                 Date of sentence
+             </label>
+             <input type="date" name='dateofSentence'value={editForm.dateofSentence} onChange = {handleForm} />
+         </div>
+
+         <div className="edit_inputs ">
+             <label htmlFor="name">
+                 Year of Sentence
+             </label>
+             <input type="text" name='yearOfSentence'value={editForm.yearOfSentence} onChange = {handleForm} />
          </div>
 
          <div className="edit_inputs ">

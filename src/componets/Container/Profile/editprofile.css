@@ -14,7 +14,7 @@
 } */
 .container-xP-edit{
     width: 100%;
-    margin: 80px;
+    /* margin: 80px; */
 }
 
 .container__profile{
@@ -25,7 +25,7 @@
     min-width: 900px;
     min-height: 450px;
     max-width: 900px;
-    margin: 10rem auto 10px;
+    /* margin: 10rem auto 10px; */
     position: relative;
     display: flex;
     align-items: center;
