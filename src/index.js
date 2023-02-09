@@ -11,15 +11,14 @@ import SearchBar from './componets/Container/searchBar/SearchBar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-  <TheApp />
-   {/* <Router>
-    <Routes>
-      <Route path='/' element={<TheApp />} />
-    </Routes>
-   </Router> */}
 
-  </BrowserRouter>
+<Router>
+  <Routes>
+    <Route path='/' element={<TheApp />} />
+  </Routes>
+</Router>
+
+
 );
 // ReactDOM.createRoot(document.getElementById("root")).render(
 // <BrowserRouter>
