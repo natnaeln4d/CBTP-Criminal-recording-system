@@ -2,11 +2,63 @@ import React from "react";
 import Sidebar from "../../SIdebar/Sidebar";
 import "./Viewall.css";
 import { useState, useEffect } from "react";
+import { NavLink, Link } from "react-router-dom";
 
 export default function Viewall() {
   const [items, setItems] = useState(null);
   const [Isloaded, setIsloaded] = useState(null);
   const [Error, setError] = useState(false);
+
+  const CriminalTableRow = (props) => {
+    return (
+      <tr>
+        <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+          <div className="flex items-center">
+            <div>
+              <div className="text-sm leading-5 text-gray-800">
+                {props.data.id}
+              </div>
+            </div>
+          </div>
+        </td>
+        <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+          <div className="text-sm leading-5 text-blue-900">
+            {props.data.name}
+          </div>
+        </td>
+        <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
+          {props.data.age}
+        </td>
+        <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
+          {props.data.crimeType}
+        </td>
+        <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
+          {props.data.crimeDescription}
+        </td>
+        <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
+          <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+            <span
+              aria-hidden
+              className="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+            <span className="relative text-xs">active</span>
+          </span>
+        </td>
+        <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500 text-blue-900 text-sm leading-5">
+          {props.data.yearOfSentence}
+        </td>
+        <td className="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
+          <button
+            className="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none"
+            onClick={(e) => {
+              props.setSelectedCriminal(items[props.index]);
+            }}>
+            <Link to="/editcriminal">edit</Link>
+          </button>
+        </td>
+      </tr>
+    );
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -205,47 +257,10 @@ export default function Viewall() {
 
                       <tbody className="scroll bg-white overflow-y-scroll h-[50vh]">
                         {items.map((data, index) => (
-                          <tr>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                              <div className="flex items-center">
-                                <div>
-                                  <div className="text-sm leading-5 text-gray-800">
-                                    {data.id}
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                              <div className="text-sm leading-5 text-blue-900">
-                                {data.name}
-                              </div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                              {data.age}
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                              {data.crimeType}
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                              {data.crimeDiscription}
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                              <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                <span
-                                  aria-hidden
-                                  className="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                <span className="relative text-xs">active</span>
-                              </span>
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500 text-blue-900 text-sm leading-5">
-                              {data.yearOfSentece}
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                              <button className="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
-                                View Details
-                              </button>
-                            </td>
-                          </tr>
+                          <CriminalTableRow
+                            data={data}
+                            index={index}
+                          />
                         ))}
                       </tbody>
                     </table>

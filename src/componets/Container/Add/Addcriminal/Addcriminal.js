@@ -6,17 +6,12 @@ import React, { useState } from "react";
 import { AiFillWarning } from "react-icons/ai";
 import Sidebar from "../../../SIdebar/Sidebar";
 
-function Addcriminal() {
-  const [isEdit, setIsEdit] = useState(false);
-  const [editForm, setEditForm] = useState({
-    firstName: "Robera",
-    lastName: "Insarmu",
-    age: 12,
-    crimeType: "murdering",
-    crimeDescription: "lorem shshs sh",
-    dateOfSentence: "",
-    yearOfSentence: 4,
-  });
+function Addcriminal(props) {
+  console.log(props);
+  let path;
+  const [isEdit, setIsEdit] = useState(props.edit);
+  const [editForm, setEditForm] = useState({});
+
   const [firstName, setfirstName] = useState("");
   const [lastName, setlastName] = useState("");
   const [age, setage] = useState("");
@@ -27,21 +22,25 @@ function Addcriminal() {
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
+  if (isEdit) {
+    path = "http://localhost:8080/admin/editCriminal";
+  }
+  if (!isEdit) {
+    path = "http://localhost:8080/admin/addCriminal";
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:8080/admin/addCriminal",
-        {
-          name: `${firstName} ${lastName}`,
-          age,
-          crimeType,
-          crimeDescription,
-          dateOfSentence,
-          yearOfSentence,
-          user: { role: "superAdmin" },
-        }
-      );
+      const response = await axios.post(path, {
+        name: `${firstName} ${lastName}`,
+        age,
+        crimeType,
+        crimeDescription,
+        dateOfSentence,
+        yearOfSentence,
+        user: { role: "superAdmin" },
+      });
       const data = response?.data;
 
       if (data.status == "fail") {
@@ -70,7 +69,9 @@ function Addcriminal() {
         <div className="container-xP-edit-a">
           <div className="container__profile_addCr">
             <form className="edit_inputForms">
-              <h1 className="section__page_title">Add criminal page </h1>
+              <h1 className="section__page_title">
+                {isEdit ? "Edit " : "Add"} criminal page{" "}
+              </h1>
 
               <div className="edit_inputs ">
                 <label htmlFor="name">Firstname</label>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchBar from "./Container/searchBar/SearchBar";
 import Footer from "./Footer/Footer";
 import Navbar from "./Navbar/Navbar";
@@ -22,6 +22,7 @@ import ViewSinglecriminal from "./Container/Viewall/ViewSinglecriminal";
 import Profile from "./Container/Profile/Profile";
 
 export default function TheApp() {
+  const [selectedCriminal, setSelectedCriminal] = useState({});
   return (
     <Router>
       <Navbar />
@@ -35,7 +36,7 @@ export default function TheApp() {
         <Route
           path="/viewall"
           exact
-          element={<Viewall />}
+          element={<Viewall setSelectedCriminal={setSelectedCriminal} />}
         />
         <Route
           path="search"
@@ -50,7 +51,17 @@ export default function TheApp() {
         <Route
           path="addcriminal"
           exact
-          element={<Addcriminal />}
+          element={<Addcriminal edit={false} />}
+        />
+        <Route
+          path="editcriminal"
+          exact
+          element={
+            <Addcriminal
+              edit={true}
+              selectedCriminal={selectedCriminal}
+            />
+          }
         />
         <Route
           path="editprofile"
@@ -73,7 +84,7 @@ export default function TheApp() {
         />
         <Route
           path="viewall"
-          element={<Viewall />}
+          element={<Viewall setSelectedCriminal={setSelectedCriminal} />}
         />
         <Route
           path="singlecriminal"
