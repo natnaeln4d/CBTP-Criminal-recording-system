@@ -17,6 +17,7 @@ import AddAdmin from "./Container/Add/Addadmin/AddAdmin";
 import Addcriminal from "./Container/Add/Addcriminal/Addcriminal";
 import EditProfile from "./Container/Profile/EditProfile";
 import ViewAdmin from "./Container/viewAdmin/Admintable/ViewAdmin";
+import ViewSinglecriminal from "./Container/Viewall/ViewSinglecriminal";
 
 export default function TheApp() {
   return (
@@ -32,6 +33,10 @@ export default function TheApp() {
               path="viewall" 
               element={<Viewall />} 
               />
+              <Route 
+                path="singlecriminal"
+                 element={<ViewSinglecriminal />}
+                 />
              <Route 
               path="search"
               element={<SearchBar />}

@@ -2,6 +2,7 @@ import React from 'react'
 import Sidebar from '../../SIdebar/Sidebar'
 import './Viewall.css'
 import { useState ,useEffect} from 'react'
+import { Link } from 'react-router-dom';
 
 export default function Viewall() {
    const [items,setItems] = useState();
@@ -20,11 +21,11 @@ export default function Viewall() {
           })
           const json = await response.json();
           console.log(json)
-           console.log(json.cars[0].carName)
+           console.log(json)
         
         
           setIsloaded({
-              isLoaded:json.status
+              isLoaded:true
           })
             setItems(json.cars)
           console.log(json);
@@ -213,7 +214,8 @@ export default function Viewall() {
                           </td>
                           <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500 text-blue-900 text-sm leading-5">September 12</td>
                           <td className="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                              <button className="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">View Details</button>
+                           <Link to='/singlecriminal' >
+                           <button className="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">View Details</button></Link>  
                           </td>
                 </tr>
 
