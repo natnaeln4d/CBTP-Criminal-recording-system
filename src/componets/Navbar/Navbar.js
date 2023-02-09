@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Navbar.css'
+import { Link } from 'react-router-dom'
 import {FaUserCircle} from 'react-icons/fa'
 import{FaUserPlus} from 'react-icons/fa'
 import {FaListAlt} from 'react-icons/fa'
@@ -86,9 +87,12 @@ export default class Navbar extends Component {
     this.state.visibilty && (
           <div className="absolute right-0 z-10 w-48 py-1 mt-2 origin-top-right bg-gray-700 rounded-md shadow-lg drop dropdown ring-1 ring-black ring-opacity-5 focus:outline-none">
        
-            <option className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0"><a href="#" >
-            <FaUserCircle className='drop_icon' />Profile</a></option>
-            <option className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1"><a href="#" >Setting</a></option>
+            <option className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">
+              
+            <Link to="/profile"> 
+            <a  href="#" >Edit Profile</a></Link>
+            </option>
+            <option className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1"><Link to="/editprofile"><a href="#" >Edit Profile</a></Link></option>
 
             <option className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-3"><a href="#" >Sign out</a></option>
 

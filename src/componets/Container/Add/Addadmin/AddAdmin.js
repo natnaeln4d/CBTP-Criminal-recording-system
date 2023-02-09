@@ -3,6 +3,7 @@ import React,{useState} from "react";
 import {AiFillEye} from 'react-icons/ai'
 import {AiFillEyeInvisible} from 'react-icons/ai'
 import {AiFillWarning} from 'react-icons/ai'
+import Sidebar from "../../../SIdebar/Sidebar";
 
 function AddAdmin() {
   const [passType, setPassType] = useState("password")
@@ -46,8 +47,11 @@ function AddAdmin() {
   }
 
   return (
-
-    <div className="container-xP-edit-a">
+    <div className='sectionContainer'>
+    <div className="section">
+       <Sidebar />
+      <div className='contents-x'>
+      <div className="container-xP-edit-a">
     <div className='container__profile_addCr'>
     
      <form className="edit_inputForms">
@@ -124,6 +128,14 @@ function AddAdmin() {
       
    </div>
 </div>
+
+      </div>
+    </div>
+
+</div>
+
+
+ 
   )
 }
 
