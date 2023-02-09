@@ -50,6 +50,3 @@ exports.logout = async (req, res, next) => {
     next(error);
   }
 };
-exports.getIndex = async (req, res, next) => {
-  res.redirect("/login");
-};
