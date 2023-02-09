@@ -6,6 +6,5 @@ router.post("/addUser", superAdminController.addUser);
 
 router.post("/criminal/:criminalId", superAdminController.searchCriminal);
 
-// router.post("/admin", superAdminController.searchCriminal);
-
+router.post("/updateCriminal/:criminalId", adminController.updateCriminal);
 module.exports = router;
