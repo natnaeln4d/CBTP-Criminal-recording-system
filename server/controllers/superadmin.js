@@ -105,6 +105,30 @@ exports.searchAdmins = async (req, res, next) => {
     res.json({ status: "success", admin });
   }
 };
+
+exports.getUpdateCriminal = async (req, res, next) => {
+  const criminalId = req.params.criminalId;
+
+  try {
+    const criminal = await Criminal.findOne({
+      where: { id: criminalId },
+    });
+    console.log(criminal);
+    if (!criminal) {
+      return res.json({
+        status: "fail",
+        message: "Error! No criminal with that id",
+      });
+    }
+
+    res.json({ status: "success", criminal });
+  } catch {
+    res
+      .status(500)
+      .json({ status: "fail", message: "Unable to do the operation" });
+  }
+};
+
 //Update criminal
 exports.updateCriminal = async (req, res, next) => {
   const criminalId = req.params.criminalId;

@@ -12,6 +12,11 @@ router.post(
   superAdminController.searchCriminal
 );
 
+router.get(
+  "/updateCriminal/:criminalId",
+  superAdminController.getUpdateCriminal
+);
+
 router.post(
   "/updateCriminal/:criminalId",
   isAuth,
