@@ -5,7 +5,6 @@ const Officer = require("../models/officer");
 
 exports.postLogin = async (req, res, next) => {
   const { email, password } = req.body;
-  console.log(req.body);
 
   const user = await Auth.findOne({ where: { email: email } });
   if (!user) {
@@ -27,7 +26,7 @@ exports.postLogin = async (req, res, next) => {
       });
     }
     //Officer
-    else if (user.role == "officer") {
+    else if (user.role == "Officer") {
       userData = await Officer.findOne({
         where: { email: user.email },
       });

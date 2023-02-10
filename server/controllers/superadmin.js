@@ -7,6 +7,7 @@ const { QueryTypes } = require("sequelize");
 const sequelize = require("../configs/dbConfig");
 
 exports.addUser = async (req, res, next) => {
+  console.log(req.body);
   const {
     email,
     name,
@@ -125,54 +126,32 @@ exports.getUsers = async (req, res, next) => {
 };
 exports.deleteUser = async (req, res, next) => {
   const userId = req.params.userId;
+  console.log(userId);
   const UserToDelete = await Auth.findOne({ where: { id: userId } });
-  console.log(UserToDelete);
-  if (!UserToDelete) return;
-  if (UserToDelete.role == "Officer") {
-    const row1 = await sequelize.query(
-      `delete from authentications where id=${userId} `,
-      {
-        type: QueryTypes.SELECT,
-      }
-    );
-
-    const row2 = await sequelize.query(
-      `delete from officers where id=${userId} `,
-      {
-        type: QueryTypes.SELECT,
-      }
-    );
-  } else {
-    const row1 = await sequelize.query(
-      `delete from authentications where id=${userId} `,
-      {
-        type: QueryTypes.SELECT,
-      }
-    );
-
-    const row2 = await sequelize.query(
-      `delete from admins where id=${userId} `,
-      {
-        type: QueryTypes.SELECT,
-      }
-    );
-  }
-
-  console.log(row1);
-
-  return;
 
   if (!UserToDelete) {
-    console.log("no user found with this id ");
-    return;
+    return res.json({ status: "fail", message: "no user found with this id " });
   }
   if (UserToDelete.role == "Officer") {
-    const officer = await Officer.findOne();
-    await officer.destory();
-    await UserToDelete.destory();
+    const officer = await Officer.findOne({ where: { id: userId } });
+    if (!officer) {
+      return res.json({
+        status: "fail",
+        message: "no user found with this id ",
+      });
+    }
+    await officer.destroy();
+    await UserToDelete.destroy();
   } else {
-    await SuperAdmin.destory();
-    await UserToDelete.destory();
+    const admin = await SuperAdmin.findOne({ where: { id: userId } });
+    if (!admin) {
+      return res.json({
+        status: "fail",
+        message: "no user found with this id ",
+      });
+    }
+    await admin.destroy();
+    await UserToDelete.destroy();
   }
   const admins = await SuperAdmin.findAll();
   const officers = await Officer.findAll();
