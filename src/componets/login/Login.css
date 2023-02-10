@@ -1,3 +1,8 @@
+.contents-x-login{
+    margin: 2rem;
+    height: 440px;
+    /* background-color: #000; */
+}
 .LoginContainers{
     overflow: hidden;
     font-size: 10px;
@@ -5,9 +10,10 @@
 
 .LoginContainers{
     /* background-color: aqua; */
-    width: 70%;
-    margin: 3rem auto;
-    height: calc(100vh - 6rem);
+    width: 90%;
+    /* margin: 1rem auto; */
+    /* height: calc(100vh - 6rem); */
+    height: inherit;
     border: 1px solid rgb(205, 204, 204);
     border-radius: 5px;
 
@@ -26,7 +32,8 @@
 
 .graph__container{
     width: 50%;
-    height: 100%;
+    /* height: 100%;
+    background-color: red; */
     
 }
 
@@ -40,10 +47,18 @@
 .sign__in_container{
     width: 50%;
     /* background-color: blue; */
-    padding: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 5rem 0; */
+    /* padding-left: 2rem; */
+    padding: 2rem;
     background-color: #f8f8f8;
     border-radius: 3px;
-    border-radius: inherit
+    border-radius: inherit;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    /* background-color: #54b4d3; */
 
 
 
@@ -63,7 +78,7 @@
 .login-h2{
     font-weight: 400;
     font-size: 1.7rem;
-    margin-bottom: 2rem;
+    margin-bottom: 10px;
 
 }
 
@@ -76,7 +91,7 @@
 }
 
 .inputs{
-    width: 100%;
+    width: 100% !important;
     margin-bottom: 2.4rem;
    
 }
@@ -114,6 +129,12 @@
     font-weight: bold;
 }
 
+.sign-btn:hover{
+    background-color: #3aa2c4e0;
+
+
+}
+
 .error__credential{
     background-color: rgb(176, 18, 18);
     margin-bottom: 10px;
@@ -121,10 +142,11 @@
     align-items: center;
     display: flex;
     gap: 5px;
+    font-size: 15px;
 }
 
 input::placeholder{
-    color: #000;
+    color: #5b5656;
 }
 
 .pswd__area{
@@ -149,3 +171,4 @@ input::placeholder{
     background-color: #b7c1c3;
     border-radius: 50%;
 }
+

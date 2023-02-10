@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Navbar.css'
+import { Link } from 'react-router-dom'
 import {FaUserCircle} from 'react-icons/fa'
 import{FaUserPlus} from 'react-icons/fa'
 import {FaListAlt} from 'react-icons/fa'
@@ -7,8 +8,10 @@ import Photo from '../Photo/photo_2023-01-20 22.58.12.jpeg';
 import Photo1 from '../Photo/images (8).png'
 import Photo2 from '../Photo/sealing-criminal-records-rgb-color-icon-2GF7H62.jpeg'
 import Photo3 from '../Photo/2689742.png'
+import { Navigate } from 'react-router-dom'
 
 export default class Navbar extends Component {
+
   constructor(props) {
     super(props)
      this.handelVisiblity=this.handelVisiblity.bind(this);
@@ -23,10 +26,13 @@ export default class Navbar extends Component {
           visibilty : !pre.visibilty
       }
   });
+
   
         
   }
-  
+  navigate(){
+    <Navigate to="/viewall"  replace={true} />
+  }
   render() {
     return (
       <div>
@@ -84,15 +90,26 @@ export default class Navbar extends Component {
 
 {
     this.state.visibilty && (
+    
           <div className="absolute right-0 z-10 w-48 py-1 mt-2 origin-top-right bg-gray-700 rounded-md shadow-lg drop dropdown ring-1 ring-black ring-opacity-5 focus:outline-none">
        
-            <option className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0"><a href="#" >
-            <FaUserCircle className='drop_icon' />Profile</a></option>
-            <option className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1"><a href="#" >Setting</a></option>
+           
+              
+            <Link className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700"  to="/viewall"> 
+            <a  href="#" >Profile</a>
+            </Link>
+            <Link className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700"  to="/addAdmin"> 
+            <a  href="#" >Edit Profile</a>
+            </Link>
+            
 
-            <option className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-3"><a href="#" >Sign out</a></option>
+            <Link className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700"  to="/"> 
+          
+                <a href="#" >Sign out</a>
+           </Link>
 
           </div>
+      
     )
   }
         </div>

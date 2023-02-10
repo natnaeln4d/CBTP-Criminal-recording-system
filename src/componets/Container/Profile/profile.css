@@ -4,9 +4,8 @@
 }
 
 .container__profile{
-    /* background-color: #0d1117; */
-        /* background-color: #0d1117; */
-        background-color: #ffffff;
+
+background-color: #ffffff;
         box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     min-width: 900px;
     min-height: 450px;
