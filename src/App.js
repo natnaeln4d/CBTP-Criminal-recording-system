@@ -13,17 +13,16 @@ function App() {
       <SectionContainer />
       {/* <Sidebar /> */}
       <Footer />
-<<<<<<< HEAD
+
       {/* <Footer /> */}
 
 
        {/* <Login />  */}
       
    
-=======
+
       {/* <Login />  */}
->>>>>>> 5f0d0ee0220bfd5af06a40229d60082ebf2b77f3
-    </div>
+   </div>
   );
 }
 
