@@ -37,9 +37,7 @@ export default function Login() {
         password,
       });
       const data = response?.data;
-      console.log(response, "jjjjjjj");
       let userData = JSON.stringify(data.userData);
-      console.log(userData);
       localStorage.setItem("userData", userData);
       localStorage.setItem("auth", data.auth);
       if (data.auth) {
