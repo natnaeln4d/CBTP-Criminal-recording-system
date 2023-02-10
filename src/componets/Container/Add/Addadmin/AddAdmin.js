@@ -137,7 +137,7 @@ function AddAdmin() {
                 </div>
 
                 <div className="edit_inputs ">
-                  <label htmlFor="name">Username</label>
+                  <label htmlFor="name">Email </label>
                   <input
                     type="text"
                     name="address"
