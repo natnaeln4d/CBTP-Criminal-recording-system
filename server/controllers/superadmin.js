@@ -45,6 +45,7 @@ exports.addUser = async (req, res, next) => {
         role: role,
         address: address,
         phone: phone,
+        id: newUser.id,
       });
       await newAdmin.save();
       await newUser.save();
@@ -57,6 +58,7 @@ exports.addUser = async (req, res, next) => {
         role: role,
         address: address,
         phone: phone,
+        id: newUser.id,
       });
       await newAdmin.save();
       await newUser.save();
@@ -70,6 +72,7 @@ exports.addUser = async (req, res, next) => {
         phone: phone,
         address: address,
         address: "address",
+        id: newUser.id,
       });
       await newOfficer.save();
       await newUser.save();
@@ -104,6 +107,46 @@ exports.searchAdmins = async (req, res, next) => {
     res.json({ status: "fail", message: "no admin with this id" });
     res.json({ status: "success", admin });
   }
+};
+exports.getUsers = async (req, res, next) => {
+  const admins = await SuperAdmin.findAll();
+  const officers = await Officer.findAll();
+
+  const users = admins.concat(officers);
+  if (!users) {
+    const error = new Error("Unable to find admins ");
+    error.statusCode = 500;
+    throw error;
+  }
+
+  res.json({ status: "success", users });
+};
+exports.deleteUser = async (req, res, next) => {
+  const userId = req.params.userId;
+  const UserToDelete = await Auth.findOne({ where: { id: userId } });
+  if (!UserToDelete) {
+    console.log("no user found with this id ");
+    return;
+  }
+  if (UserToDelete.role == "Officer") {
+    const officer = await Officer.findOne();
+    await officer.destory();
+    await UserToDelete.destory();
+  } else {
+    await SuperAdmin.destory();
+    await UserToDelete.destory();
+  }
+  const admins = await SuperAdmin.findAll();
+  const officers = await Officer.findAll();
+
+  const users = admins.concat(officers);
+  if (!users) {
+    const error = new Error("Unable to find admins ");
+    error.statusCode = 500;
+    throw error;
+  }
+
+  res.json({ status: "success", users });
 };
 
 exports.getUpdateCriminal = async (req, res, next) => {
