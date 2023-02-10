@@ -41,11 +41,15 @@ export default function Login() {
       let userData = JSON.stringify(data.userData);
       console.log(userData);
       localStorage.setItem("userData", userData);
+      localStorage.setItem("auth", data.auth);
       if (data.auth) {
         setError(false);
         Navigate("/viewall");
       } else {
         setError(true);
+        setTimeout(() => {
+          setError(false);
+        }, 5000);
       }
     } catch (err) {
       console.log(err);
@@ -65,66 +69,60 @@ export default function Login() {
   };
 
   return (
-  
-        <div className="contents-x-login">
-          <div className="LoginContainers">
-            <div className="fluid-container">
-              <div className="graph__container">
-                <img src={lock} alt="" className="graph" />
-              </div>
+    <div className="contents-x-login">
+      <div className="LoginContainers">
+        <div className="fluid-container">
+          <div className="graph__container">
+            <img src={lock} alt="" className="graph" />
+          </div>
 
-              <div className="sign__in_container">
-                <div className="sing__elements">
-                  <h2 className="login-h2">Log in</h2>
-                  {error && (
-                    <div className="error__credential">
-                      <AiFillWarning />
-                      <p>You have entered invalid credentials!</p>
-                    </div>
-                  )}
-
-                  <form action="#" method="POST" className="form__input">
-                    <div className="inputs">
-                      <input
-                        type="email"
-                        name="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Email "
-                        className="emailInput"
-                      />
-                    </div>
-                    <div className="inputs pswd__area">
-                      <input
-                        type={passType}
-                        name="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Password"
-                        className="pswd__area passwordInput"
-                      />
-
-                      <button className="show__pswd" onClick={showPass}>
-                        {" "}
-                        {show}{" "}
-                      </button>
-                    </div>
-
-                    <div className="inputs">
-                      <button
-                        onClick={handleSubmit}
-                        name=""
-                        className="sign-btn"
-                      >
-                        Sign in
-                      </button>
-                    </div>
-                  </form>
+          <div className="sign__in_container">
+            <div className="sing__elements">
+              <h2 className="login-h2">Log in</h2>
+              {error && (
+                <div className="error__credential">
+                  <AiFillWarning />
+                  <p>You have entered invalid credentials!</p>
                 </div>
-              </div>
+              )}
+
+              <form action="#" method="POST" className="form__input">
+                <div className="inputs">
+                  <input
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Email "
+                    className="emailInput"
+                  />
+                </div>
+                <div className="inputs pswd__area">
+                  <input
+                    type={passType}
+                    name="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Password"
+                    className="pswd__area passwordInput"
+                  />
+
+                  <button className="show__pswd" onClick={showPass}>
+                    {" "}
+                    {show}{" "}
+                  </button>
+                </div>
+
+                <div className="inputs">
+                  <button onClick={handleSubmit} name="" className="sign-btn">
+                    Sign in
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
-   
+      </div>
+    </div>
   );
 }
