@@ -61,6 +61,7 @@ function AddAdmin() {
           setError(false);
         }, 5000);
         setErrorMsg(data.message);
+        Navigate("/viewAdmin");
       }
     } catch (err) {
       console.log(err);
@@ -72,7 +73,7 @@ function AddAdmin() {
     if (passType === "password") {
       setPassType("text");
       setShow(<AiFillEye />);
-      Navigate("/viewAdmin", { replace: true });
+      // Navigate("/viewAdmin", { replace: true });
     } else {
       setPassType("password");
       setShow(<AiFillEyeInvisible />);
@@ -151,7 +152,8 @@ function AddAdmin() {
                   <select
                     name="role"
                     value={role}
-                    onChange={(e) => setRole(e.target.value)}>
+                    onChange={(e) => setRole(e.target.value)}
+                  >
                     <option>SuperAdmin</option>
                     <option>Admin</option>
                     <option>Officer</option>
@@ -168,9 +170,7 @@ function AddAdmin() {
                     className="pswd__area"
                   />
 
-                  <button
-                    className="show__pswd"
-                    onClick={showPass}>
+                  <button className="show__pswd" onClick={showPass}>
                     {" "}
                     {show}{" "}
                   </button>
@@ -193,7 +193,8 @@ function AddAdmin() {
                   <button
                     name=""
                     className="sign-btn add__criminal"
-                    onClick={handleSubmit}>
+                    onClick={handleSubmit}
+                  >
                     {isEdit ? "Edit" : "Add"} Admin
                   </button>
                 </div>

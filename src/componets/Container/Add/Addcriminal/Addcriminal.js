@@ -4,6 +4,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { AiFillWarning } from "react-icons/ai";
+import { useNavigate } from "react-router";
 import Sidebar from "../../../SIdebar/Sidebar";
 
 function Addcriminal(props) {
@@ -32,6 +33,7 @@ function Addcriminal(props) {
   );
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const Navigate = useNavigate();
 
   if (isEdit) {
     id = props?.selectedCriminal?.id;
@@ -69,6 +71,7 @@ function Addcriminal(props) {
           setError(false);
         }, 5000);
         setErrorMsg(data.message);
+        Navigate("/viewall");
       }
     } catch (err) {
       console.log(err);
@@ -158,7 +161,8 @@ function Addcriminal(props) {
                 <button
                   name=""
                   className="sign-btn add__criminal"
-                  onClick={handleSubmit}>
+                  onClick={handleSubmit}
+                >
                   {isEdit ? "Edit" : "Add"} Criminal
                 </button>
               </div>

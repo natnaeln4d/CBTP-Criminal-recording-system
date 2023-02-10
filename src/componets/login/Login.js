@@ -41,11 +41,15 @@ export default function Login() {
       let userData = JSON.stringify(data.userData);
       console.log(userData);
       localStorage.setItem("userData", userData);
+      localStorage.setItem("auth", data.auth);
       if (data.auth) {
         setError(false);
         Navigate("/viewall");
       } else {
         setError(true);
+        setTimeout(() => {
+          setError(false);
+        }, 5000);
       }
     } catch (err) {
       console.log(err);
@@ -69,11 +73,15 @@ export default function Login() {
       <div className="LoginContainers">
         <div className="fluid-container">
           <div className="graph__container">
+<<<<<<< HEAD
             <img
               src={lock}
               alt=""
               className="graph"
             />
+=======
+            <img src={lock} alt="" className="graph" />
+>>>>>>> b001d557dd963914097feedf7635707cdd4ae297
           </div>
 
           <div className="sign__in_container">
@@ -86,10 +94,10 @@ export default function Login() {
                 </div>
               )}
 
-              <form
-                action="#"
-                method="POST"
-                className="form__input">
+
+
+              <form action="#" method="POST" className="form__input">
+
                 <div className="inputs">
                   <input
                     type="email"
@@ -110,21 +118,20 @@ export default function Login() {
                     className="pswd__area passwordInput"
                   />
 
-                  <button
-                    className="show__pswd"
-                    onClick={showPass}>
+
+                
+
+                  <button className="show__pswd" onClick={showPass}>
                     {" "}
                     {show}{" "}
                   </button>
                 </div>
 
-                <div className="inputs">
-                  <button
-                    onClick={handleSubmit}
-                    name=""
-                    className="sign-btn">
+                  <button onClick={handleSubmit} name="" className="sign-btn">
+
                     Sign in
                   </button>
+                </div>
                 </div>
               </form>
             </div>
