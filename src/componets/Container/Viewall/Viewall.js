@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 
 export default function Viewall(props) {
-  console.log(props);
   const [items, setItems] = useState(null);
   const [Isloaded, setIsloaded] = useState(null);
   const [Error, setError] = useState(false);
@@ -261,6 +260,7 @@ export default function Viewall(props) {
                           <CriminalTableRow
                             data={data}
                             index={index}
+                            setSelectedCriminal={props.setSelectedCriminal}
                           />
                         ))}
                       </tbody>
