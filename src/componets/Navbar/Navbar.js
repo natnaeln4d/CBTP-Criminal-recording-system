@@ -14,6 +14,7 @@ export default class Navbar extends Component {
   constructor(props) {
     super(props);
     this.handelVisiblity = this.handelVisiblity.bind(this);
+    this.handlesignout = this.handlesignout.bind(this);
     this.state = {
       visibilty: false,
     };
@@ -24,15 +25,16 @@ export default class Navbar extends Component {
         visibilty: !pre.visibilty,
       };
     });
-
-    const handlesign = () => {
-      console.log("asdfasdf");
-      localStorage.setItem("userData", "");
-      localStorage.setItem("auth", "");
-    };
+  }
+  handlesignout() {
+    localStorage.removeItem("userData");
+    localStorage.removeItem("auth");
   }
   navigate() {
-    <Navigate to="/viewall" replace={true} />;
+    <Navigate
+      to="/viewall"
+      replace={true}
+    />;
   }
   render() {
     return (
@@ -45,8 +47,7 @@ export default class Navbar extends Component {
                   type="button"
                   className="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                   aria-controls="mobile-menu"
-                  aria-expanded="false"
-                >
+                  aria-expanded="false">
                   <span className="sr-only">Open main menu</span>
 
                   <svg
@@ -56,8 +57,7 @@ export default class Navbar extends Component {
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    aria-hidden="true"
-                  >
+                    aria-hidden="true">
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
@@ -72,8 +72,7 @@ export default class Navbar extends Component {
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    aria-hidden="true"
-                  >
+                    aria-hidden="true">
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
@@ -98,7 +97,9 @@ export default class Navbar extends Component {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex mx-[-35px] py-4">
                     <h1 className="font-lg font-extrabold">
-                      <a href="#" className="px-3 py-2 text-xl text-white">
+                      <a
+                        href="#"
+                        className="px-3 py-2 text-xl text-white">
                         Criminal Recording Manangement System{" "}
                       </a>
                     </h1>
@@ -108,8 +109,7 @@ export default class Navbar extends Component {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
-                  className="p-1 text-gray-400 bg-gray-800 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                >
+                  className="p-1 text-gray-400 bg-gray-800 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                   <span className="sr-only">View notifications</span>
 
                   <svg
@@ -119,8 +119,7 @@ export default class Navbar extends Component {
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    aria-hidden="true"
-                  >
+                    aria-hidden="true">
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
@@ -137,8 +136,7 @@ export default class Navbar extends Component {
                       className="flex text-sm bg-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                       id="user-menu-button"
                       aria-expanded="false"
-                      aria-haspopup="true"
-                    >
+                      aria-haspopup="true">
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="w-8 h-8 rounded-full"
@@ -152,16 +150,18 @@ export default class Navbar extends Component {
                     <div className="absolute right-0 z-10 w-48 py-1 mt-2 origin-top-right bg-gray-700 rounded-md shadow-lg drop dropdown ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Link
                         className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700"
-                        to="/profile"
-                      >
+                        to="/profile">
                         <a href="#">Profile</a>
                       </Link>
 
                       <Link
                         className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700"
-                        to="/"
-                      >
-                        <a href="#">Sign out</a>
+                        to="/">
+                        <a
+                          href="#"
+                          onClick={this.handlesignout}>
+                          Sign out
+                        </a>
                       </Link>
                     </div>
                   )}
