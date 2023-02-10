@@ -5,6 +5,7 @@ const Officer = require("../models/officer");
 
 exports.postLogin = async (req, res, next) => {
   const { email, password } = req.body;
+  console.log(req.body);
 
   const user = await Auth.findOne({ where: { email: email } });
   if (!user) {
@@ -15,9 +16,11 @@ exports.postLogin = async (req, res, next) => {
     let userData;
     //Superadmin
     if (user.role == "superadmin") {
+      console.log("dddddddddddddddddddddd");
       userData = await SuperAdmin.findOne({
         where: { email: user.email },
       });
+      console.log(userData, "ggggggggggggggg");
     }
     //Admin
     else if (user.role == "admin") {
@@ -31,9 +34,10 @@ exports.postLogin = async (req, res, next) => {
         where: { email: user.email },
       });
     }
+    console.log(userData);
     return res.status(200).json({ auth: true, userData: userData });
   } else {
-    return res.status(403).json({ auth: false, msg: "access denied" });
+    return res.json({ auth: false, msg: "access denied" });
   }
 };
 
