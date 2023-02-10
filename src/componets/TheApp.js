@@ -69,7 +69,7 @@ export default function TheApp() {
           element={<EditProfile />}
         />
         <Route
-          path="profile"
+          path="/profile"
           exact
           element={<Profile />}
         />

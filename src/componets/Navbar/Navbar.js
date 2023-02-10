@@ -98,8 +98,8 @@ export default class Navbar extends Component {
             <Link className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700"  to="/viewall"> 
             <a  href="#" >Profile</a>
             </Link>
-            <Link className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700"  to="/addAdmin"> 
-            <a  href="#" >Edit Profile</a>
+            <Link className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700"  to="/profile"> 
+            <a  href="#" >Profile</a>
             </Link>
             
 

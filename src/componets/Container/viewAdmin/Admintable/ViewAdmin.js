@@ -1,8 +1,10 @@
 import React from 'react'
 import Sidebar from '../../../SIdebar/Sidebar'
 
+
 export default function ViewAdmin() {
   return (
+   
     <div className='sectionContainer'>
     <div className="section w-72">
        <Sidebar />
