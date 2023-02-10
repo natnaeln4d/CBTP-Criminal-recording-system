@@ -10,7 +10,6 @@ export default function ViewAdmin() {
 
   const UserDataRow = (props) => {
     const handleDelete = async () => {
-      console.log("ffffffff");
       try {
         const response = await fetch(
           `http://localhost:8080/superAdmin/user/${props.data.id}`,

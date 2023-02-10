@@ -13,8 +13,16 @@ function App() {
       <SectionContainer />
       {/* <Sidebar /> */}
       <Footer />
+
+      {/* <Footer /> */}
+
+
+       {/* <Login />  */}
+      
+   
+
       {/* <Login />  */}
-    </div>
+   </div>
   );
 }
 

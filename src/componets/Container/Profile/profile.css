@@ -5,29 +5,33 @@
 
 .container__profile{
 
-background-color: #ffffff;
+background-color: #f5f5f6;
         box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     min-width: 900px;
-    min-height: 450px;
+    min-height:300px;
     max-width: 900px;
-    margin: 10rem auto 10px;
+    margin-top: 3rem auto 10px;
     position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
     color: #f9f9f9;
     border-radius: 10px;
-    gap: 1rem;
+    /* gap: 1rem; */
     padding-bottom: 2rem;
-    max-height: 400px;
+    /* max-height: 400px; */
     color: #0d1117;
 
 }
 
+.profil_cont{
+    height: 320px;
+    padding: 2.5rem;
+}
 
 .admin_photo {
-    width: 128px;
-    height: 128px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     position: absolute;
 }
@@ -50,7 +54,7 @@ background-color: #ffffff;
 }
 
 .adminName{
-margin-top: 100px;
+margin-top: 70px;
 font-size: 2rem;
 }
 
@@ -91,7 +95,7 @@ font-size: 2rem;
     /* gap: 3rem; */
     width: 80%;
     font-size: 1.4rem;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
     /* justify-content: space-around; */
     /* align-items: sp; */
 }
@@ -105,10 +109,10 @@ font-size: 2rem;
 
 .editProfile{
     position: absolute;
-    top: 7rem;
+    top: 4rem;
     right: 7rem;
     /* background-color: green; */
-    font-size: 1.7rem;
+    font-size: 16px;
 }
 
 .editProfile button{
