@@ -27,6 +27,7 @@ export default class Navbar extends Component {
     });
   }
   handlesignout() {
+    console.log("");
     localStorage.removeItem("userData");
     localStorage.removeItem("auth");
   }
