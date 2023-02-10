@@ -152,12 +152,6 @@ export default class Navbar extends Component {
                     <div className="absolute right-0 z-10 w-48 py-1 mt-2 origin-top-right bg-gray-700 rounded-md shadow-lg drop dropdown ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Link
                         className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700"
-                        to="/viewall"
-                      >
-                        <a href="#">Profile</a>
-                      </Link>
-                      <Link
-                        className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700"
                         to="/profile"
                       >
                         <a href="#">Profile</a>
@@ -167,7 +161,7 @@ export default class Navbar extends Component {
                         className="block px-4 py-2 text-sm text-white hover:bg-white hover:text-gray-700"
                         to="/"
                       >
-                        <button onClick={this.handlesign}>Sign out</button>
+                        <a href="#">Sign out</a>
                       </Link>
                     </div>
                   )}
