@@ -1,13 +1,11 @@
-// import React from 'react'
-// import adminPhoto from '/src/componets/Photo/rob--profile.jpg'
+import React from 'react'
+import user from './user.png'
+const AdminPhoto = () => {
+  return (
+    <div className='admin_photo'>
+      <img src={user} />
+    </div>
+  )
+}
 
-
-// function AdminPhoto() {
-//   return (
-//     <div className="admin_photo">
-//             <img src={adminPhoto} alt="" />
-//         </div>
-//   )
-// }
-
-// export default AdminPhoto
+export default AdminPhoto

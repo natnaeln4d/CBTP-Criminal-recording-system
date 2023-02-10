@@ -1,80 +1,4 @@
-// import React,{useState} from 'react'
-// // import './profile.css'
 
-// import './editprofile.css'
-// // import './profile.css'
-
-
-// function EditProfile() {
-//   const [editForm, setEditForm] = useState({
-//     firstName: "Robera",
-//     lastName: "Insarmu",
-//     phone : 23272373232,
-//     email: 'roba@gmail.com'
-//   })
-
-//   const handleForm = (e) =>{
-//     const {name,values} = e.target;
-//     setEditForm(prev=>({
-//         ...prev,
-//         [name] : values
-//     }))
-//  }
-
-//   return (
-//     // <div className='editContainer'>
-
-//     //     <div className="admin_photo">
-//     //         <img src={adminPhoto} alt="" />
-//     //     </div>
-
-//     //    <div className="inputForms">
-//     //    <div className="inputs">
-//     //         <label htmlFor="name">
-//     //             Fristname
-//     //         </label>
-//     //         <input type="text" name='name' value=''  />
-//     //     </div>
-//     //    </div>
-//     // </div>
-
-//     <div className="container-xP-edit">
-//         <div className='container__profile'>
-//             <div className="edit_inputForms">
-            
-//                 <div className="edit_inputs ">
-//                     <label htmlFor="name">
-//                         Firstname
-//                     </label>
-//                     <input type="text" name='firstName' value={editForm.firstName} onChange = {handleForm}  />
-//                 </div>
-
-//                 <div className="edit_inputs ">
-//                     <label htmlFor="name">
-//                         Lastname
-//                     </label>
-//                     <input type="text" name='lastName'value={editForm.lastName} onChange = {handleForm} />
-//                 </div>
-//                 <div className="edit_inputs ">
-//                     <label htmlFor="name">
-//                         Email
-//                     </label>
-//                     <input type="text" name='email'value={editForm.email} onChange = {handleForm} />
-//                 </div>
-
-//                 <div className="edit_inputs ">
-//                     <label htmlFor="name">
-//                         Phone
-//                     </label>
-//                     <input type="text" name='phone'value={editForm.phone} onChange = {handleForm} />
-//                 </div>
-
-//             </div>
-        
-//         </div>
-//     </div>
-//   )
-// }
 
 // export default EditProfile
 
@@ -94,14 +18,19 @@ function EditProfile() {
     yearOfSentence: 4,
 
   })
+  const [firstName, setfirstName] = useState('')
+  const [lastName, setlastName] = useState('')
+  const [age, setage] = useState('')
+  const [crimeType, setcrimeType] = useState('')
+  const [crimeDescription, setcrimeDescription] = useState('')
+  const [dateofSentence, setdateofSentence] = useState('')
+  const [yearOfSentence, setyearOfSentence] = useState('')
 
-  const handleForm = (e) =>{
-    const {name,values} = e.target;
-    setEditForm(prev=>({
-        ...prev,
-        [name] : values
-    }))
- }
+
+
+const handleSubmit = (e)=>{
+    e.preventDefault();
+}
 
   return (
 
@@ -115,45 +44,67 @@ function EditProfile() {
              <label htmlFor="name">
                  Firstname
              </label>
-             <input type="text" name='firstName' value={editForm.firstName} onChange = {handleForm}  />
+             <input 
+                type="text" 
+                name='firstName' 
+                value={firstName} 
+                onChange = {e=>setfirstName(e.target.value)} 
+              />
          </div>
 
          <div className="edit_inputs ">
              <label htmlFor="name">
                  Lastname
              </label>
-             <input type="text" name='lastName'value={editForm.lastName} onChange = {handleForm} />
+             <input 
+                type="text" 
+                name='lastName'
+                value={editForm.lastName}
+                onChange = {e=>setlastName(e.target.value)} />
          </div>
          <div className="edit_inputs ">
              <label htmlFor="name">
                  Age
              </label>
-             <input type="number" name='age'value={editForm.age} onChange = {handleForm} />
+             <input 
+                type="number" 
+                name='age'
+                value={age} 
+                onChange = {e=>setage(e.target.value)} />
          </div>
 
          <div className="edit_inputs ">
              <label htmlFor="name">
                  Crime Type
              </label>
-             <input type="text" name='crimeType'value={editForm.crimeType} onChange = {handleForm} />
+             <input 
+                type="text" 
+                name='crimeType'
+                value={crimeType} 
+                onChange = {e=>setcrimeType(e.target.value)} />
          </div>
 
          <div className="edit_inputs ">
              <label htmlFor="name">
                  Date of sentence
              </label>
-             <input type="date" name='dateofSentence'value={editForm.dateofSentence} onChange = {handleForm} />
+             <input 
+                type="date" 
+                name='dateofSentence'
+                value={dateofSentence} 
+                onChange = {e=>setdateofSentence(e.target.value)} />
          </div>
 
          <div className="edit_inputs ">
              <label htmlFor="name">
                  Year of Sentence
              </label>
-             <input type="text" name='yearOfSentence'value={editForm.yearOfSentence} onChange = {handleForm} />
+             <input type="text" name='yearOfSentence'value={yearOfSentence} onChange = {e=>setyearOfSentence(e.target.value)} />
          </div>
 
          <div className="edit_inputs ">
-         <button name='' className='sign-btn add__criminal'>{isEdit ? "Edit" : "Add"} Criminal</button>
+         <button name='' className='sign-btn add__criminal' onClick={handleSubmit}>
+            {isEdit ? "Edit" : "Add"} Criminal</button>
          </div>
 
       </form>

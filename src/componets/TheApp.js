@@ -69,7 +69,7 @@ export default function TheApp() {
           element={<EditProfile />}
         />
         <Route
-          path="profile"
+          path="/profile"
           exact
           element={<Profile />}
         />
@@ -77,6 +77,11 @@ export default function TheApp() {
           path="viewAdmin"
           exact
           element={<ViewAdmin />}
+        />
+        <Route
+          path="getusers"
+          exact
+          element={<AddAdmin />}
         />
         <Route
           path="/"

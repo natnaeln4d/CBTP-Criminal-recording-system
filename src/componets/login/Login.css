@@ -1,6 +1,11 @@
 .contents-x-login{
-    margin: 2rem;
+    margin: 2rem auto;
     height: 440px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    
     /* background-color: #000; */
 }
 .LoginContainers{
