@@ -11,8 +11,8 @@ exports.postLogin = async (req, res, next) => {
   if (!user) {
     return res.json({ auth: false, message: "Invalid Email or password " });
   }
-  // const match = bcrypt./compare(password, user.password);
-  const match = password == user.password;
+  const match = await bcrypt.compare(password, user.password);
+  // const match = password == user.password;
   if (match) {
     let userData;
     //Superadmin
@@ -35,7 +35,7 @@ exports.postLogin = async (req, res, next) => {
     }
     return res.status(200).json({ auth: true, userData: userData });
   } else {
-    return res.status(403).json({ auth: false, msg: "access denied" });
+    return res.json({ auth: false, msg: "access denied" });
   }
 };
 

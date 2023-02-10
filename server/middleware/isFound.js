@@ -9,7 +9,7 @@ module.exports = async (req, res, next) => {
   //If there is no superAdmin present on db, it will create dummy superAdmin
   if (!superAdmins || superAdmins.length == 0) {
     const email = "superadmin@gmail.com";
-    const password = "superadmin123";
+    const password = "123";
     const role = "superadmin";
 
     const newSuperAdmin = await Admin.create({

@@ -14,7 +14,7 @@ exports.getCriminals = async (req, res, next) => {
 
 exports.getCriminal = async (req, res, next) => {
   const criminalId = req.params.criminalId;
-  const criminal = await Criminal.findOne({ where: { id: criminalId } });
+  const criminal = await Criminal.findAll({ where: { id: criminalId } });
 
   if (criminal == null) {
     return res.json({ status: "fail", message: "No criminal with this Id " });
