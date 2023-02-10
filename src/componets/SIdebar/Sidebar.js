@@ -29,9 +29,7 @@ function Sidebar() {
 
         <div className="container__content">
           <Link to="/viewall">
-            <a
-              href="#"
-              className="side__elements">
+            <a href="#" className="side__elements">
               <FaListAlt className="side__icons" />
               View
             </a>
@@ -39,20 +37,24 @@ function Sidebar() {
         </div>
         <div className="container__content">
           <Link to="/viewAdmin">
-            <a
-              href="#"
-              className="side__elements">
+            <a href="#" className="side__elements">
               <FaListAlt className="side__icons" />
               View Admin
+            </a>
+          </Link>
+        </div>
+        <div className="container__content">
+          <Link to="/search">
+            <a href="#" className="side__elements">
+              <FaListAlt className="side__icons" />
+              search
             </a>
           </Link>
         </div>
 
         <div className="container__content">
           <Link to="/profile">
-            <a
-              href="#"
-              className="side__elements">
+            <a href="#" className="side__elements">
               <FaUserCircle className="side__icons" />
               Profile
             </a>
@@ -61,9 +63,7 @@ function Sidebar() {
 
         <div className="container__content">
           <Link to="/addcriminal">
-            <a
-              href="#"
-              className="side__elements">
+            <a href="#" className="side__elements">
               <FaUserPlus className="side__icons" />
               Add Criminal
             </a>
