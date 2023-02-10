@@ -1,195 +1,162 @@
-import React from 'react'
-import Sidebar from '../../../SIdebar/Sidebar'
+import React from "react";
+import Sidebar from "../../../SIdebar/Sidebar";
+import { useState, useEffect } from "react";
+import Photo from "../../../Photo/images (8).png";
 
 export default function ViewAdmin() {
-  return (
-    <div className='sectionContainer'>
-    <div className="section w-72">
-       <Sidebar />
-      <div className='contents-x'>
-      <div className='con w-full'>
-      
-      <div className='con'>
+  const [items, setItems] = useState();
+  const [Isloaded, setIsloaded] = useState();
+  const [Error, setError] = useState(null);
 
-<div className="scr -my-2 py-2  sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
-        <div className="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white shadow-lg px-12">
-            <div className="flex justify-between">
-            <h1 className='text-[2rem]'>All Officer</h1>
-            </div>
-        </div>
-        <div className="align-middle  inline-block w-[8-%] shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
-            <table className="min-w-full">
-                <thead>
-                    <tr>
-                        <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">ID</th>
-                        <th className="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">First Name</th>
-                        <th className="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">Age</th>
-                        <th className="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">Crime Type</th>
-                        <th className="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">Crime Discription</th>
-                        <th className="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">Status</th>
-                        <th className="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider"> Year Of Sentence</th>
-                        <th className="px-6 py-3 border-b-2 border-gray-300"></th>
-                    </tr>
-                </thead>
-              
-                <tbody className="scroll bg-white overflow-y-scroll h-[50vh]">
-                 <tr>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div className="flex items-center">
-                                    <div>
-                                        <div className="text-sm leading-5 text-gray-800">#1</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div className="text-sm leading-5 text-blue-900">Dereje Obera</div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">32</td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">danger</td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                <span aria-hidden className="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                <span className="relative text-xs">active</span>
-                            </span>
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500 text-blue-900 text-sm leading-5">September 12</td>
-                            <td className="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                                <button className="px-5 py-2 border-red-500 border text-red-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">Delete</button>
-                            </td>
-                  </tr>
-                  <tr>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div className="flex items-center">
-                                    <div>
-                                        <div className="text-sm leading-5 text-gray-800">#1</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div className="text-sm leading-5 text-blue-900">Dereje Obera</div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">32</td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">danger</td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                <span aria-hidden className="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                <span className="relative text-xs">active</span>
-                            </span>
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500 text-blue-900 text-sm leading-5">September 12</td>
-                            <td className="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                                <button className="px-5 py-2 border-red-500 border text-red-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">Delete</button>
-                            </td>
-                  </tr>
-                  <tr>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div className="flex items-center">
-                                    <div>
-                                        <div className="text-sm leading-5 text-gray-800">#1</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div className="text-sm leading-5 text-blue-900">Dereje Obera</div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">32</td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">danger</td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                <span aria-hidden className="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                <span className="relative text-xs">active</span>
-                            </span>
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500 text-blue-900 text-sm leading-5">September 12</td>
-                            <td className="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                                <button className="px-5 py-2 border-red-500 border text-red-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">Delete</button>
-                            </td>
-                  </tr>
-                  <tr>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div className="flex items-center">
-                                    <div>
-                                        <div className="text-sm leading-5 text-gray-800">#1</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div className="text-sm leading-5 text-blue-900">Dereje Obera</div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">32</td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">danger</td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                <span aria-hidden className="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                <span className="relative text-xs">active</span>
-                            </span>
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500 text-blue-900 text-sm leading-5">September 12</td>
-                            <td className="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                                <button className="px-5 py-2 border-red-500 border text-red-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">Delete</button>
-                            </td>
-                  </tr>
-                  <tr>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div className="flex items-center">
-                                    <div>
-                                        <div className="text-sm leading-5 text-gray-800">#1</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div className="text-sm leading-5 text-blue-900">Dereje Obera</div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">32</td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">danger</td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                <span aria-hidden className="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                <span className="relative text-xs">active</span>
-                            </span>
-                            </td>
-                            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500 text-blue-900 text-sm leading-5">September 12</td>
-                            <td className="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                                <button className="px-5 py-2 border-red-500 border text-red-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">Delete</button>
-                            </td>
-                  </tr>
-               
-                 
-                  
-                      
-                </tbody>
-               
-            </table>
-          <div className="sm:flex-1 sm:flex sm:items-center sm:justify-between mt-4 work-sans">
-<div>
-    <p className="text-sm leading-5 text-blue-700">
-        Showing
-        <span className="font-medium">1</span>
-        to
-        <span className="font-medium">200</span>
-        of
-        <span className="font-medium">2000</span>
-        results
-    </p>
-</div>
+  const UserDataRow = (props) => {
+    const handleDelete = async () => {
+      console.log("ffffffff");
+      try {
+        const response = await fetch(
+          `http://localhost:8080/superAdmin/user/${props.data.id}`,
+          {
+            method: "GET",
+          }
+        );
+        const json = await response.json();
+        console.log(json);
+        if (json.status == "success") {
+          setIsloaded(true);
+          setItems(json.users);
+        }
+        setItems(json.users);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
 
-</div>
-</div>
-</div>
-</div>
-            
+    return (
+      <li class="py-3 sm:py-4">
+        <div class="flex items-center space-x-4">
+          <div class="flex-shrink-0">
+            <img
+              class="w-8 h-8 rounded-full"
+              src={Photo}
+              alt="Neil image"
+            />
           </div>
-    
-   
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+              {props.data.name}
+            </p>
+            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+              {props.data.email}
+            </p>
+            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+              {props.data.role}
+            </p>
+          </div>
 
+          <button
+            type="submit"
+            className="px-5 py-2 border-red-500 border text-red-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none"
+            onClick={handleDelete}>
+            Delete
+          </button>
+        </div>
+      </li>
+    );
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:8080/superAdmin/users", {
+          method: "GET",
+          headers: {
+            "content-Type": "application/json",
+          },
+        });
+        const json = await response.json();
+        console.log(json);
+        if (json.status == "success") setIsloaded(true);
+        setItems(json.users);
+        console.log(json);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  if (Error) {
+    return (
+      <div className="sectionContainer">
+        <div className="section">
+          <Sidebar />
+          <div className="contents-x py-5 w-[70%]">
+            <div className="py-5 ">
+              <div
+                class="p-4 w-[100%] mb-4  text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-700 dark:text-red-400"
+                role="alert">
+                <span class="font-medium">Danger alert!</span> Error:{" "}
+                {Error.message}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-
-</div>
-  )
+    );
+  } else if (!Isloaded) {
+    return (
+      <div className="sectionContainer">
+        <div className="section">
+          <Sidebar />
+          <div className="contents-x py-5 w-[70%]">
+            <div className="py-5 ">
+              <div
+                className="p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-700 dark:text-yellow-300"
+                role="alert">
+                <span className="font-medium">!</span> Loading...
+              </div>
+            </div>
+            ;
+          </div>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="sectionContainer">
+        <div className="section w-72">
+          <Sidebar />
+          <div className="contents-x">
+            <div className="con w-full">
+              <div className="con p-8">
+                <div class="p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                  <div class="flex items-center justify-between mb-4">
+                    <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">
+                      Latest officers
+                    </h5>
+                    <a
+                      href="#"
+                      class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+                      all
+                    </a>
+                  </div>
+                  <div class="flow-root w-[50rem] h-[50vh] overflow-y-auto">
+                    <ul
+                      role="list"
+                      class="divide-y  divide-gray-200 dark:divide-gray-700">
+                      {items.map((data, index) => (
+                        <UserDataRow
+                          data={data}
+                          index={index}
+                        />
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }

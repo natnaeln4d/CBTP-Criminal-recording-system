@@ -79,6 +79,11 @@ export default function TheApp() {
           element={<ViewAdmin />}
         />
         <Route
+          path="getusers"
+          exact
+          element={<AddAdmin />}
+        />
+        <Route
           path="/"
           element={<Login />}
         />

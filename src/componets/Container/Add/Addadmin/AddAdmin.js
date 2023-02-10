@@ -2,8 +2,9 @@ import axios from "axios";
 import React, { useState } from "react";
 import { AiFillEye } from "react-icons/ai";
 import { AiFillEyeInvisible } from "react-icons/ai";
-import Sidebar from "../../../SIdebar/Sidebar";
 import { AiFillWarning } from "react-icons/ai";
+import Sidebar from "../../../SIdebar/Sidebar";
+import { useNavigate } from "react-router";
 // import axios from "axios";
 
 function AddAdmin() {
@@ -21,6 +22,7 @@ function AddAdmin() {
   const [role, setRole] = useState("Officer");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const Navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     // const emailInput = document.querySelector(".emailInput");
@@ -70,6 +72,7 @@ function AddAdmin() {
     if (passType === "password") {
       setPassType("text");
       setShow(<AiFillEye />);
+      Navigate("/viewAdmin", { replace: true });
     } else {
       setPassType("password");
       setShow(<AiFillEyeInvisible />);
