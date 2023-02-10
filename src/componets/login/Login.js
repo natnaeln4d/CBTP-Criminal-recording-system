@@ -6,22 +6,23 @@ import { AiFillWarning } from "react-icons/ai";
 import "./Login.css";
 import Sidebar from "../SIdebar/Sidebar";
 import axios from "axios";
-import { Navigate, redirect } from "react-router";
+import { Navigate, redirect, useNavigate } from "react-router";
 
 export default function Login() {
   const [passType, setPassType] = useState("password");
   const [show, setShow] = useState(<AiFillEyeInvisible />);
   const [error, setError] = useState(false);
-  const [form, setForm] = useState({
-    email: "",
-    password: " ",
-  });
+  // const [form, setForm] = useState({
+  //   email: "",
+  //   password: " ",
+  // });
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const Navigate = useNavigate();
 
-  const [isAuth, setIsAuth] = useState(false);
+  // const [isAuth, setIsAuth] = useState(false);
 
-  useEffect(() => {}, [form.email, form.password]);
+  // useEffect(() => {}, [form.email, form.password]);
 
   const handleSubmit = async (e) => {
     // const emailInput = document.querySelector(".emailInput");
@@ -37,42 +38,17 @@ export default function Login() {
       });
       const data = response?.data;
       console.log(data);
+      let userData = JSON.stringify(data.userData);
+      console.log(userData);
+      localStorage.setItem("userData", userData);
       if (data.auth) {
-        setIsAuth(true);
         setError(false);
         Navigate("/viewall");
       } else {
-        setIsAuth(false);
-        authenticateUser();
         setError(true);
       }
     } catch (err) {
       console.log(err);
-      authenticateUser();
-    }
-  };
-  //Handle form inputs
-  const handleForm = (e) => {
-    e.preventDefault();
-    console.log(form.email, "eeeeeeeee");
-
-    const { name, values } = e.target;
-    setForm((prev) => ({
-      ...prev,
-      [name]: values,
-    }));
-    authenticateUser();
-  };
-
-  const authenticateUser = () => {
-    if (form.password === "1") {
-      setTimeout(() => {
-        setError(false);
-      }, 2000);
-    } else {
-      setTimeout(() => {
-        setError(true);
-      }, 2000);
     }
   };
 
@@ -96,11 +72,7 @@ export default function Login() {
           <div className="LoginContainers">
             <div className="fluid-container">
               <div className="graph__container">
-                <img
-                  src={lock}
-                  alt=""
-                  className="graph"
-                />
+                <img src={lock} alt="" className="graph" />
               </div>
 
               <div className="sign__in_container">
@@ -113,10 +85,7 @@ export default function Login() {
                     </div>
                   )}
 
-                  <form
-                    action="#"
-                    method="POST"
-                    className="form__input">
+                  <form action="#" method="POST" className="form__input">
                     <div className="inputs">
                       <input
                         type="email"
@@ -138,9 +107,7 @@ export default function Login() {
                         className="pswd__area passwordInput"
                       />
 
-                      <button
-                        className="show__pswd"
-                        onClick={showPass}>
+                      <button className="show__pswd" onClick={showPass}>
                         {" "}
                         {show}{" "}
                       </button>
@@ -150,7 +117,8 @@ export default function Login() {
                       <button
                         onClick={handleSubmit}
                         name=""
-                        className="sign-btn">
+                        className="sign-btn"
+                      >
                         Sign in
                       </button>
                     </div>
