@@ -3,6 +3,8 @@ const Officer = require("../models/officer");
 const bcrypt = require("bcryptjs");
 const Auth = require("../models/auth");
 const Criminal = require("../models/criminal");
+const { QueryTypes } = require("sequelize");
+const sequelize = require("../configs/dbConfig");
 
 exports.addUser = async (req, res, next) => {
   const {
@@ -124,6 +126,42 @@ exports.getUsers = async (req, res, next) => {
 exports.deleteUser = async (req, res, next) => {
   const userId = req.params.userId;
   const UserToDelete = await Auth.findOne({ where: { id: userId } });
+  console.log(UserToDelete);
+  if (!UserToDelete) return;
+  if (UserToDelete.role == "Officer") {
+    const row1 = await sequelize.query(
+      `delete from authentications where id=${userId} `,
+      {
+        type: QueryTypes.SELECT,
+      }
+    );
+
+    const row2 = await sequelize.query(
+      `delete from officers where id=${userId} `,
+      {
+        type: QueryTypes.SELECT,
+      }
+    );
+  } else {
+    const row1 = await sequelize.query(
+      `delete from authentications where id=${userId} `,
+      {
+        type: QueryTypes.SELECT,
+      }
+    );
+
+    const row2 = await sequelize.query(
+      `delete from admins where id=${userId} `,
+      {
+        type: QueryTypes.SELECT,
+      }
+    );
+  }
+
+  console.log(row1);
+
+  return;
+
   if (!UserToDelete) {
     console.log("no user found with this id ");
     return;
@@ -148,7 +186,6 @@ exports.deleteUser = async (req, res, next) => {
 
   res.json({ status: "success", users });
 };
-
 exports.getUpdateCriminal = async (req, res, next) => {
   const criminalId = req.params.criminalId;
 

@@ -11,8 +11,7 @@ exports.postLogin = async (req, res, next) => {
   if (!user) {
     return res.json({ auth: false, message: "Invalid Email or password " });
   }
-  // const match = bcrypt./compare(password, user.password);
-  const match = password == user.password;
+  const match = await bcrypt.compare(password, user.password);
   if (match) {
     let userData;
     //Superadmin
