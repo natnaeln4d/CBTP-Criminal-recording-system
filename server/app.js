@@ -1,5 +1,6 @@
 const express = require("express");
 const sequelize = require("./configs/dbConfig");
+var cors = require("cors");
 
 // third party imports
 const session = require("express-session");
@@ -33,6 +34,8 @@ app.use(
 );
 
 //Headers to fix CORS Errors
+app.use(cors()); // Use this after the variable declaration
+
 app.use((req, res, next) => {
   console.log(req.path, "kkkkkkkkkk");
   res.setHeader("Access-Control-Allow-Origin", "*");

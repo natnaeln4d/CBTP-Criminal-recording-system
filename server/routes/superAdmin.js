@@ -22,4 +22,9 @@ router.post(
   isAuth,
   adminController.updateCriminal
 );
+
+router.get("/users", superAdminController.getUsers);
+
+router.get("/user/:userId", superAdminController.deleteUser);
+
 module.exports = router;

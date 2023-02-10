@@ -17,9 +17,11 @@ exports.postLogin = async (req, res, next) => {
     let userData;
     //Superadmin
     if (user.role == "superadmin") {
+      console.log("dddddddddddddddddddddd");
       userData = await SuperAdmin.findOne({
         where: { email: user.email },
       });
+      console.log(userData, "ggggggggggggggg");
     }
     //Admin
     else if (user.role == "admin") {
@@ -28,11 +30,12 @@ exports.postLogin = async (req, res, next) => {
       });
     }
     //Officer
-    else if (user.role == "officer") {
+    else if (user.role == "Officer") {
       userData = await Officer.findOne({
         where: { email: user.email },
       });
     }
+    console.log(userData);
     return res.status(200).json({ auth: true, userData: userData });
   } else {
     return res.json({ auth: false, msg: "access denied" });

@@ -3,8 +3,11 @@ const Officer = require("../models/officer");
 const bcrypt = require("bcryptjs");
 const Auth = require("../models/auth");
 const Criminal = require("../models/criminal");
+const { QueryTypes } = require("sequelize");
+const sequelize = require("../configs/dbConfig");
 
 exports.addUser = async (req, res, next) => {
+  console.log(req.body);
   const {
     email,
     name,
@@ -45,6 +48,7 @@ exports.addUser = async (req, res, next) => {
         role: role,
         address: address,
         phone: phone,
+        id: newUser.id,
       });
       await newAdmin.save();
       await newUser.save();
@@ -57,6 +61,7 @@ exports.addUser = async (req, res, next) => {
         role: role,
         address: address,
         phone: phone,
+        id: newUser.id,
       });
       await newAdmin.save();
       await newUser.save();
@@ -70,6 +75,7 @@ exports.addUser = async (req, res, next) => {
         phone: phone,
         address: address,
         address: "address",
+        id: newUser.id,
       });
       await newOfficer.save();
       await newUser.save();
@@ -105,7 +111,60 @@ exports.searchAdmins = async (req, res, next) => {
     res.json({ status: "success", admin });
   }
 };
+exports.getUsers = async (req, res, next) => {
+  const admins = await SuperAdmin.findAll();
+  const officers = await Officer.findAll();
 
+  const users = admins.concat(officers);
+  if (!users) {
+    const error = new Error("Unable to find admins ");
+    error.statusCode = 500;
+    throw error;
+  }
+
+  res.json({ status: "success", users });
+};
+exports.deleteUser = async (req, res, next) => {
+  const userId = req.params.userId;
+  console.log(userId);
+  const UserToDelete = await Auth.findOne({ where: { id: userId } });
+
+  if (!UserToDelete) {
+    return res.json({ status: "fail", message: "no user found with this id " });
+  }
+  if (UserToDelete.role == "Officer") {
+    const officer = await Officer.findOne({ where: { id: userId } });
+    if (!officer) {
+      return res.json({
+        status: "fail",
+        message: "no user found with this id ",
+      });
+    }
+    await officer.destroy();
+    await UserToDelete.destroy();
+  } else {
+    const admin = await SuperAdmin.findOne({ where: { id: userId } });
+    if (!admin) {
+      return res.json({
+        status: "fail",
+        message: "no user found with this id ",
+      });
+    }
+    await admin.destroy();
+    await UserToDelete.destroy();
+  }
+  const admins = await SuperAdmin.findAll();
+  const officers = await Officer.findAll();
+
+  const users = admins.concat(officers);
+  if (!users) {
+    const error = new Error("Unable to find admins ");
+    error.statusCode = 500;
+    throw error;
+  }
+
+  res.json({ status: "success", users });
+};
 exports.getUpdateCriminal = async (req, res, next) => {
   const criminalId = req.params.criminalId;
 
