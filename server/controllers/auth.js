@@ -1,4 +1,4 @@
-const Auth = require("../models/Auth");
+const Auth = require("../models/auth");
 const bcrypt = require("bcryptjs");
 const SuperAdmin = require("../models/admin");
 const Officer = require("../models/officer");

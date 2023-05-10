@@ -11,6 +11,7 @@ import {
   Navigator,
   useNavigate,
 } from "react-router-dom";
+
 import Viewall from "./Container/Viewall/Viewall";
 import Login from "./login/Login";
 import AddAdmin from "./Container/Add/Addadmin/AddAdmin";
@@ -20,22 +21,30 @@ import ViewAdmin from "./Container/viewAdmin/Admintable/ViewAdmin";
 import ViewSinglecriminal from "./Container/Viewall/ViewSinglecriminal";
 
 import Profile from "./Container/Profile/Profile";
+import Protected from "./Protected/ProtectedRoute";
 
 export default function TheApp() {
+
+  const [auth, setAuth] = useState(false)
   const [selectedCriminal, setSelectedCriminal] = useState({});
+
+  React.useEffect(()=>{
+    if(localStorage.getItem('auth')) setAuth(prev=>true)
+  },[auth])
+
   return (
     <Router>
       <Navbar />
       <Routes>
         {" "}
-        <Route path="/" exact element={<Login />} />
+        <Route path="/login" exact element={<Login />} />
         <Route
           path="/viewall"
           exact
-          element={<Viewall setSelectedCriminal={setSelectedCriminal} />}
+          element={<Protected auth={auth}> <Viewall setSelectedCriminal={setSelectedCriminal} /> </Protected>}
         />
-        <Route path="search" exact element={<SearchBar />} />
-        <Route path="addAdmin" exact element={<AddAdmin />} />
+        <Route path="/search" exact element={<SearchBar />} />
+        <Route path="/addAdmin" exact element={<Protected auth={auth}> <AddAdmin /> </Protected>} />
         <Route
           path="addcriminal"
           exact
@@ -48,10 +57,10 @@ export default function TheApp() {
             <Addcriminal edit={true} selectedCriminal={selectedCriminal} />
           }
         />
-        <Route path="editprofile" exacts element={<EditProfile />} />
+        <Route path="/editprofile" exacts element={<EditProfile />} />
         <Route path="/profile" exact element={<Profile />} />
-        <Route path="viewAdmin" exact element={<ViewAdmin />} />
-        <Route path="getusers" exact element={<AddAdmin />} />
+        <Route path="/viewAdmin" exact element={<ViewAdmin />} />
+        <Route path="/getusers" exact element={<AddAdmin />} />
         <Route path="/" element={<Login />} />
         <Route
           path="viewall"

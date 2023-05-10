@@ -266,14 +266,14 @@ export default function Viewall(props) {
                       </tbody>
                     </table>
                     <div className="sm:flex-1 sm:flex sm:items-center sm:justify-between mt-4 work-sans">
-                      <div>
-                        <p className="text-sm leading-5 text-blue-700">
+                      <div className='flex space-x-4'>
+                        <p className="text-sm leading-5 text-blue-700 ">
                           Showing
-                          <span className="font-medium">1</span>
+                          <span className="font-medium p-1">1</span>
                           to
-                          <span className="font-medium">200</span>
+                          <span className="font-medium p-1">200</span>
                           of
-                          <span className="font-medium">2000</span>
+                          <span className="font-medium p-1 ">2000</span>
                           results
                         </p>
                       </div>
